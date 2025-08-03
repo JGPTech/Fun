@@ -1,0 +1,99 @@
+import numpy as np
+from itertools import product
+
+def make_chain_adj(dim, ring=False):
+    A = np.zeros((dim, dim), dtype=float)
+    for i in range(dim - 1):
+        A[i, i+1] = A[i+1, i] = 1.0
+    if ring and dim > 2:
+        A[0, dim-1] = A[dim-1, 0] = 1.0
+    return A
+
+def row_stochastic(A):
+    A = np.asarray(A, dtype=float)
+    S = A.sum(axis=1, keepdims=True)
+    S[S == 0] = 1.0
+    return A / S
+
+def neighbors_tuple(idx, local_adj, num_registers):
+    # Yield (reg, new_val, weight) for each single-coordinate neighbor
+    dim = local_adj.shape[0]
+    rows = [np.nonzero(local_adj[i])[0] for i in range(dim)]
+    for r in range(num_registers):
+        i = idx[r]
+        for j in rows[i]:
+            yield r, j, 1.0  # weight before normalization
+
+def build_index_maps(dim, num_registers):
+    # Map between tuple index and flat index
+    shapes = (dim,) * num_registers
+    tuples = list(product(*[range(dim) for _ in range(num_registers)]))
+    t2f = {t: i for i, t in enumerate(tuples)}
+    f2t = tuples
+    return t2f, f2t
+
+def coupled_sequence_multi(dim=5, num_registers=2, N=200, c=1.25,
+                           alpha=0.9, ring=False, eps=1e-9):
+    # Local adjacency and normalized weights per site
+    A = make_chain_adj(dim, ring=ring)
+    # Precompute normalized neighbor lists per site
+    rows = [np.nonzero(A[i])[0] for i in range(dim)]
+    deg = np.array([len(r) for r in rows], dtype=float)
+    deg[deg == 0] = 1.0
+
+    total = dim ** num_registers
+    a = np.zeros((N, total), dtype=float)
+    a[0, :] = float(c)  # uniform init; or pass a vector of length total
+
+    # Index maps
+    t2f, f2t = build_index_maps(dim, num_registers)
+
+    # Iterate
+    for n in range(2, N+1):
+        prev = a[n-2, :]
+        g = np.empty_like(prev)
+        for flat_idx, idx_tuple in enumerate(f2t):
+            # self term
+            self_val = prev[flat_idx]
+            # neighbor aggregation over all single-coordinate moves
+            agg = 0.0
+            norm = 0.0
+            for r in range(num_registers):
+                i = idx_tuple[r]
+                neighs = rows[i]
+                if len(neighs) == 0:
+                    continue
+                weight_each = 1.0 / deg[i]  # row-stochastic locally
+                for j in neighs:
+                    nb_tuple = list(idx_tuple)
+                    nb_tuple[r] = j
+                    nb_flat = t2f[tuple(nb_tuple)]
+                    agg += weight_each * prev[nb_flat]
+                    norm += weight_each
+            # Combine self and neighbor part
+            nb_part = agg if norm == 0.0 else agg  # already normalized per coordinate
+            g[flat_idx] = alpha * self_val + (1.0 - alpha) * nb_part
+        g = np.maximum(g, eps)
+        a[n-1, :] = n ** (1.0 / g)
+    return a, f2t
+
+# Example usage
+if __name__ == "__main__":
+    dim = 4
+    R = 2
+    N = 160
+    a_vals, f2t = coupled_sequence_multi(dim=dim, num_registers=R, N=N, c=1.19, alpha=0.85, ring=True)
+
+    # Plot marginals per register by summing over other registers
+    import matplotlib.pyplot as plt
+    t = np.arange(1, N+1)
+    for reg in range(R):
+        plt.figure(figsize=(8,4))
+        for k in range(dim):
+            mask = [i for i, tup in enumerate(f2t) if tup[reg] == k]
+            series = a_vals[:, mask].mean(axis=1)  # or sum/other reduction
+            plt.plot(t, series, label=f"state {k}")
+        plt.title(f"Register {reg} marginal (mean over other registers)")
+        plt.xlabel("n"); plt.ylabel("marginal a(n)")
+        plt.grid(True, alpha=0.3); plt.legend()
+        plt.show()
