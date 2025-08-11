@@ -1,0 +1,213 @@
+===== Stage: Stage 1: Encode only (no syndrome, no AND) =====
+[Run 000] Inputs (A,B)=(0,0), shots=1024
+  [Debug] Raw bitstrings (sample):
+   000 -> 1024
+  [Summary] (A,B,AND) counts: {(0, 0, 0): 1024}
+  [Summary] AND correctness (this run): 1.0000
+[Run 001] Inputs (A,B)=(0,1), shots=1024
+  [Debug] Raw bitstrings (sample):
+   010 -> 1024
+  [Summary] (A,B,AND) counts: {(0, 1, 0): 1024}
+  [Summary] AND correctness (this run): 1.0000
+[Run 002] Inputs (A,B)=(1,0), shots=1024
+  [Debug] Raw bitstrings (sample):
+   001 -> 1024
+  [Summary] (A,B,AND) counts: {(1, 0, 0): 1024}
+  [Summary] AND correctness (this run): 1.0000
+[Run 003] Inputs (A,B)=(1,1), shots=1024
+  [Debug] Raw bitstrings (sample):
+   011 -> 1024
+  [Summary] (A,B,AND) counts: {(1, 1, 0): 1024}
+  [Summary] AND correctness (this run): 0.0000
+
+[Stage 1: Encode only (no syndrome, no AND)] Total shots: 4096
+Truth table totals:
+  Inputs (0, 0) -> expected AND=0: 1024/1024 correct
+  Inputs (0, 1) -> expected AND=0: 1024/1024 correct
+  Inputs (1, 0) -> expected AND=0: 1024/1024 correct
+  Inputs (1, 1) -> expected AND=1: 0/1024 correct
+[Stage 1: Encode only (no syndrome, no AND)] Overall correctness: 0.7500
+[Measured] Top (A,B,AND) probabilities:
+  (0, 0, 0): 0.250
+  (0, 1, 0): 0.250
+  (1, 0, 0): 0.250
+  (1, 1, 0): 0.250
+
+===== Stage: Stage 2: Encode + AND =====
+[Run 000] Inputs (A,B)=(0,0), shots=1024
+  [Debug] Raw bitstrings (sample):
+   000 -> 1024
+  [Summary] (A,B,AND) counts: {(0, 0, 0): 1024}
+  [Summary] AND correctness (this run): 1.0000
+[Run 001] Inputs (A,B)=(0,1), shots=1024
+  [Debug] Raw bitstrings (sample):
+   010 -> 1024
+  [Summary] (A,B,AND) counts: {(0, 1, 0): 1024}
+  [Summary] AND correctness (this run): 1.0000
+[Run 002] Inputs (A,B)=(1,0), shots=1024
+  [Debug] Raw bitstrings (sample):
+   001 -> 1024
+  [Summary] (A,B,AND) counts: {(1, 0, 0): 1024}
+  [Summary] AND correctness (this run): 1.0000
+[Run 003] Inputs (A,B)=(1,1), shots=1024
+  [Debug] Raw bitstrings (sample):
+   111 -> 1024
+  [Summary] (A,B,AND) counts: {(1, 1, 1): 1024}
+  [Summary] AND correctness (this run): 1.0000
+
+[Stage 2: Encode + AND] Total shots: 4096
+Truth table totals:
+  Inputs (0, 0) -> expected AND=0: 1024/1024 correct
+  Inputs (0, 1) -> expected AND=0: 1024/1024 correct
+  Inputs (1, 0) -> expected AND=0: 1024/1024 correct
+  Inputs (1, 1) -> expected AND=1: 1024/1024 correct
+[Stage 2: Encode + AND] Overall correctness: 1.0000
+[Measured] Top (A,B,AND) probabilities:
+  (0, 0, 0): 0.250
+  (0, 1, 0): 0.250
+  (1, 0, 0): 0.250
+  (1, 1, 1): 0.250
+
+===== Stage: Stage 3: Encode + syndrome (no correction) =====
+[Run 000] Inputs (A,B)=(0,0), shots=1024
+  [Debug] Raw bitstrings (sample):
+   000 00 00 -> 1024
+  [Summary] (A,B,AND) counts: {(0, 0, 0): 1024}
+  [Summary] AND correctness (this run): 1.0000
+[Run 001] Inputs (A,B)=(0,1), shots=1024
+  [Debug] Raw bitstrings (sample):
+   010 00 00 -> 1024
+  [Summary] (A,B,AND) counts: {(0, 1, 0): 1024}
+  [Summary] AND correctness (this run): 1.0000
+[Run 002] Inputs (A,B)=(1,0), shots=1024
+  [Debug] Raw bitstrings (sample):
+   001 00 00 -> 1024
+  [Summary] (A,B,AND) counts: {(1, 0, 0): 1024}
+  [Summary] AND correctness (this run): 1.0000
+[Run 003] Inputs (A,B)=(1,1), shots=1024
+  [Debug] Raw bitstrings (sample):
+   111 00 00 -> 1024
+  [Summary] (A,B,AND) counts: {(1, 1, 1): 1024}
+  [Summary] AND correctness (this run): 1.0000
+
+[Stage 3: Encode + syndrome (no correction)] Total shots: 4096
+Truth table totals:
+  Inputs (0, 0) -> expected AND=0: 1024/1024 correct
+  Inputs (0, 1) -> expected AND=0: 1024/1024 correct
+  Inputs (1, 0) -> expected AND=0: 1024/1024 correct
+  Inputs (1, 1) -> expected AND=1: 1024/1024 correct
+[Stage 3: Encode + syndrome (no correction)] Overall correctness: 1.0000
+[Measured] Top (A,B,AND) probabilities:
+  (0, 0, 0): 0.250
+  (0, 1, 0): 0.250
+  (1, 0, 0): 0.250
+  (1, 1, 1): 0.250
+
+===== Stage: Stage 4: Encode + syndrome + correction =====
+[Run 000] Inputs (A,B)=(0,0), shots=1024
+  [Debug] Raw bitstrings (sample):
+   000 00 00 -> 1024
+  [Summary] (A,B,AND) counts: {(0, 0, 0): 1024}
+  [Summary] AND correctness (this run): 1.0000
+[Run 001] Inputs (A,B)=(0,1), shots=1024
+  [Debug] Raw bitstrings (sample):
+   010 00 00 -> 1024
+  [Summary] (A,B,AND) counts: {(0, 1, 0): 1024}
+  [Summary] AND correctness (this run): 1.0000
+[Run 002] Inputs (A,B)=(1,0), shots=1024
+  [Debug] Raw bitstrings (sample):
+   001 00 00 -> 1024
+  [Summary] (A,B,AND) counts: {(1, 0, 0): 1024}
+  [Summary] AND correctness (this run): 1.0000
+[Run 003] Inputs (A,B)=(1,1), shots=1024
+  [Debug] Raw bitstrings (sample):
+   111 00 00 -> 1024
+  [Summary] (A,B,AND) counts: {(1, 1, 1): 1024}
+  [Summary] AND correctness (this run): 1.0000
+
+[Stage 4: Encode + syndrome + correction] Total shots: 4096
+Truth table totals:
+  Inputs (0, 0) -> expected AND=0: 1024/1024 correct
+  Inputs (0, 1) -> expected AND=0: 1024/1024 correct
+  Inputs (1, 0) -> expected AND=0: 1024/1024 correct
+  Inputs (1, 1) -> expected AND=1: 1024/1024 correct
+[Stage 4: Encode + syndrome + correction] Overall correctness: 1.0000
+[Measured] Top (A,B,AND) probabilities:
+  (0, 0, 0): 0.250
+  (0, 1, 0): 0.250
+  (1, 0, 0): 0.250
+  (1, 1, 1): 0.250
+
+===== Stage: Stage 5: + single X error injection =====
+[Run 000] Inputs (A,B)=(0,0), shots=1024
+  [Debug] Raw bitstrings (sample):
+   000 00 00 -> 1024
+  [Summary] (A,B,AND) counts: {(0, 0, 0): 1024}
+  [Summary] AND correctness (this run): 1.0000
+[Run 001] Inputs (A,B)=(0,1), shots=1024
+  [Debug] Raw bitstrings (sample):
+   010 00 00 -> 1024
+  [Summary] (A,B,AND) counts: {(0, 1, 0): 1024}
+  [Summary] AND correctness (this run): 1.0000
+[Run 002] Inputs (A,B)=(1,0), shots=1024
+  [Debug] Raw bitstrings (sample):
+   001 00 00 -> 1024
+  [Summary] (A,B,AND) counts: {(1, 0, 0): 1024}
+  [Summary] AND correctness (this run): 1.0000
+[Run 003] Inputs (A,B)=(1,1), shots=1024
+  [Debug] Raw bitstrings (sample):
+   111 00 00 -> 1024
+  [Summary] (A,B,AND) counts: {(1, 1, 1): 1024}
+  [Summary] AND correctness (this run): 1.0000
+
+[Stage 5: + single X error injection] Total shots: 4096
+Truth table totals:
+  Inputs (0, 0) -> expected AND=0: 1024/1024 correct
+  Inputs (0, 1) -> expected AND=0: 1024/1024 correct
+  Inputs (1, 0) -> expected AND=0: 1024/1024 correct
+  Inputs (1, 1) -> expected AND=1: 1024/1024 correct
+[Stage 5: + single X error injection] Overall correctness: 1.0000
+[Measured] Top (A,B,AND) probabilities:
+  (0, 0, 0): 0.250
+  (0, 1, 0): 0.250
+  (1, 0, 0): 0.250
+  (1, 1, 1): 0.250
+
+===== Stage: Stage 6: Application demo (O = A AND B) =====
+[Run 000] Inputs (A,B)=(0,0), shots=1024
+  [Debug] Raw bitstrings (sample):
+   0 000 00 00 -> 1024
+  [Summary] (A,B,AND) counts: {(0, 0, 0): 1024}
+  [Summary] O counts: {0: 1024}
+  [Summary] AND correctness (this run): 1.0000
+  [Summary] O==AND (this run): 1.0000
+[Run 001] Inputs (A,B)=(0,1), shots=1024
+  [Debug] Raw bitstrings (sample):
+   0 010 00 00 -> 1024
+  [Summary] (A,B,AND) counts: {(0, 1, 0): 1024}
+  [Summary] O counts: {0: 1024}
+  [Summary] AND correctness (this run): 1.0000
+  [Summary] O==AND (this run): 1.0000
+[Run 002] Inputs (A,B)=(1,0), shots=1024
+  [Debug] Raw bitstrings (sample):
+   0 001 00 00 -> 1024
+  [Summary] (A,B,AND) counts: {(1, 0, 0): 1024}
+  [Summary] O counts: {0: 1024}
+  [Summary] AND correctness (this run): 1.0000
+  [Summary] O==AND (this run): 1.0000
+[Run 003] Inputs (A,B)=(1,1), shots=1024
+  [Debug] Raw bitstrings (sample):
+   1 111 00 00 -> 1024
+  [Summary] (A,B,AND) counts: {(1, 1, 1): 1024}
+  [Summary] O counts: {1: 1024}
+  [Summary] AND correctness (this run): 1.0000
+  [Summary] O==AND (this run): 1.0000
+
+[Stage 6: Application demo (O = A AND B)] Total shots: 4096
+Truth table totals (AND):
+  Inputs (0, 0) -> expected AND=0: 1024/1024 correct
+  Inputs (0, 1) -> expected AND=0: 1024/1024 correct
+  Inputs (1, 0) -> expected AND=0: 1024/1024 correct
+  Inputs (1, 1) -> expected AND=1: 1024/1024 correct
+[Stage 6: Application demo (O = A AND B)] AND overall correctness: 1.0000
+[Stage 6: Application demo (O = A AND B)] O==AND overall correctness: 1.0000
