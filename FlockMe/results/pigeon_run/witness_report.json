@@ -1,0 +1,31 @@
+{
+  "birds": [
+    "N",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V"
+  ],
+  "n_birds": 8,
+  "n_steps": 5836,
+  "dt": 0.2,
+  "pca_dim": 12,
+  "n_clusters": 80,
+  "EP_raw": 0.020514155077618265,
+  "EP_star": 1.961645166418778e-27,
+  "EP_reduction_ratio": 9.562398055883786e-26,
+  "cycle_affinity_mean_abs": 3.2134350851793506e-14,
+  "tolerances": {
+    "EP_star_should_be_approximately_0": true,
+    "EP_reduction_ratio_warn_threshold": 0.25,
+    "cycle_affinity_tol": 0.001
+  },
+  "macrostats": {
+    "polarization_mean": 0.9999999999999439,
+    "alpha_mean": 0.40584516156109,
+    "kappa_mean_mean": 0.9908171619951244
+  }
+}
