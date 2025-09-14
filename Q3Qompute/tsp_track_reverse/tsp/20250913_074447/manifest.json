@@ -1,0 +1,10 @@
+{
+  "files": [
+    "tsp\\20250913_074447\\fig_tsp_hits_per_route.png",
+    "tsp\\20250913_074447\\fig_tsp_invalid_per_route.png",
+    "tsp\\20250913_074447\\fig_tsp_mean_gap_per_route.png",
+    "tsp\\20250913_074447\\fig_tsp_min_gap_per_route.png",
+    "tsp\\20250913_074447\\tsp_metrics.json",
+    "tsp\\20250913_074447\\tsp_routes_summary.csv"
+  ]
+}

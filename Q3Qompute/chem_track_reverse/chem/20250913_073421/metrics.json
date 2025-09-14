@@ -1,0 +1,58 @@
+{
+  "args": {
+    "bits": 12,
+    "delta_ev": 0.01,
+    "geomA": 0.735,
+    "geomB": 0.9,
+    "lambda": 0.7,
+    "mode": "nature",
+    "molecule": "H2",
+    "provenance_note": "nature_vqe_qeom",
+    "seed": 7
+  },
+  "dimensions": {
+    "K_moves_nonstay": 3,
+    "M_states": 4,
+    "ancillas": 2,
+    "q_coin": 2,
+    "q_pos": 2
+  },
+  "energies_eV": {
+    "EN_A": -30.94767076664366,
+    "EN_B": -30.49199810900639,
+    "ENp1_A": -31.23953485357375,
+    "ENp1_B": -30.901028617096575
+  },
+  "energies_provenance": {
+    "EN_A": "vqe",
+    "EN_B": "vqe",
+    "ENp1_A": "derived_from_qeom",
+    "ENp1_B": "derived_from_qeom"
+  },
+  "fidelity_UdaggerU": 0.9999999999999987,
+  "gate_metrics": {
+    "depth": 5124,
+    "ops": {
+      "cx": 3003,
+      "u": 4806
+    }
+  },
+  "lut_stats": {
+    "active_addresses": 8,
+    "address_total": 16,
+    "max": 46,
+    "mean": 0.0,
+    "min": -46,
+    "nonzero": 8,
+    "p_compute_expected": 0.5,
+    "total": 12
+  },
+  "probabilities": {
+    "p_anc0_compute": 0.9999999999999993,
+    "p_anc0_full": 0.9999999999999994,
+    "p_anc0_init": 0.9999999999999993,
+    "p_delta0_compute": 0.49999999999999967,
+    "p_delta0_full": 0.9999999999999994,
+    "p_delta0_init": 0.9999999999999993
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "aggregates": {
+    "avg_mean_gap_pct": 0.0,
+    "avg_min_gap_pct": 0.0,
+    "routes_with_exact": 5,
+    "routes_with_hit": 5
+  },
+  "args": {
+    "N": 4,
+    "alpha": 3.0,
+    "beta": 0.0042,
+    "init": "uniform",
+    "prove": false,
+    "repeats": 1,
+    "routes": 5,
+    "seed": 8008135,
+    "seed_sim_base": 1337,
+    "seed_transp": 10053,
+    "shots": 69,
+    "skip_exact": false,
+    "stay_gap": 50.5,
+    "steps": 10,
+    "topk": 0,
+    "wprofile": "robust"
+  },
+  "route_summaries": [
+    {
+      "bestL_min": 2.5589169850170905,
+      "exact_used": true,
+      "hits_exact_or_rev": 27,
+      "invalid_mean": 0.17391304347826086,
+      "mean_gap_pct": 0.0,
+      "min_gap_pct": 0.0,
+      "opt_len": 2.5589169850170905,
+      "route": 0,
+      "seed": 8008135,
+      "shots_total": 69
+    },
+    {
+      "bestL_min": 1.8180791831160827,
+      "exact_used": true,
+      "hits_exact_or_rev": 40,
+      "invalid_mean": 0.18840579710144928,
+      "mean_gap_pct": 0.0,
+      "min_gap_pct": 0.0,
+      "opt_len": 1.8180791831160827,
+      "route": 1,
+      "seed": 8008136,
+      "shots_total": 69
+    },
+    {
+      "bestL_min": 1.2235411406362853,
+      "exact_used": true,
+      "hits_exact_or_rev": 19,
+      "invalid_mean": 0.3188405797101449,
+      "mean_gap_pct": 0.0,
+      "min_gap_pct": 0.0,
+      "opt_len": 1.2235411406362853,
+      "route": 2,
+      "seed": 8008137,
+      "shots_total": 69
+    },
+    {
+      "bestL_min": 2.483389944890388,
+      "exact_used": true,
+      "hits_exact_or_rev": 28,
+      "invalid_mean": 0.17391304347826086,
+      "mean_gap_pct": 0.0,
+      "min_gap_pct": 0.0,
+      "opt_len": 2.483389944890388,
+      "route": 3,
+      "seed": 8008138,
+      "shots_total": 69
+    },
+    {
+      "bestL_min": 1.252494251526407,
+      "exact_used": true,
+      "hits_exact_or_rev": 23,
+      "invalid_mean": 0.21739130434782608,
+      "mean_gap_pct": 0.0,
+      "min_gap_pct": 0.0,
+      "opt_len": 1.252494251526407,
+      "route": 4,
+      "seed": 8008139,
+      "shots_total": 69
+    }
+  ]
+}
