@@ -115,7 +115,7 @@ From paper defaults:
 If you use this code, please cite:
 ```
 EchoKey Team (2025). "Bridging Quantum and Classical Gravity via Synchronization: 
-A Computational Diagnostic." GitHub: https://github.com/echokey/gie-bridge
+A Computational Diagnostic." GitHub: https://github.com/JGPTech/Fun/edit/main/unify
 ```
 
 ## Related Work
@@ -128,3 +128,4 @@ A Computational Diagnostic." GitHub: https://github.com/echokey/gie-bridge
 ## License
 
 cc0 This code is provided as-is for research purposes. Feel free to use, modify, and distribute with attribution.
+
