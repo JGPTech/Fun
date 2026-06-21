@@ -32,13 +32,9 @@ The goal of this repository is to provide a reproducible, resource-bounded repla
 │           ├── 09_L32_deep/
 │           └── series_manifest.json
 └── data/
-    └── extracted_subset/
-        └── data_to_Jon/
-            └── data/
-                └── processed/
-                    └── fig3/
-                        ├── data_better.npz
-                        └── data_fig7_selfish.npz
+    └── fig3/
+        ├── data_better.npz
+        └── data_fig7_selfish.npz
 ```
 
 The author data files shown above are **not included in this repository**. See [Data setup](#data-setup).
@@ -116,14 +112,14 @@ https://doi.org/10.5281/zenodo.19427734
 After downloading/extracting the archive, place the required processed Fig. 3 files at:
 
 ```text
-data/extracted_subset/data_to_Jon/data/processed/fig3/data_better.npz
-data/extracted_subset/data_to_Jon/data/processed/fig3/data_fig7_selfish.npz
+data/fig3/data_better.npz
+data/fig3/data_fig7_selfish.npz
 ```
 
 The runner expects `data_better.npz` by default at:
 
 ```text
-data/extracted_subset/data_to_Jon/data/processed/fig3/data_better.npz
+data/fig3/data_better.npz
 ```
 
 with:
@@ -148,45 +144,6 @@ To run without author-data comparison:
 ```powershell
 python run_unified_test_series.py --tests 1-3 --no-author
 ```
-
-## Recommended `.gitignore`
-
-Because the author archive is external data, do not commit it.
-
-Recommended ignore rules:
-
-```gitignore
-# Author-supplied / external data
-data/extracted_subset/data_to_Jon/
-data_to_Jon.zip
-
-# Large generated evidence runs
-analysis/unified_test_series/*/*/unified_main_pipeline/*/*.npz
-analysis/unified_test_series/*/*/unified_main_pipeline/*/*.csv
-analysis/unified_test_series/*/*/unified_main_pipeline/*/*.json
-analysis/unified_test_series/*/*/*.log
-
-# Python/cache
-__pycache__/
-*.pyc
-*.pyo
-
-# TeX artifacts
-*.aux
-*.log
-*.out
-*.toc
-*.fls
-*.fdb_latexmk
-*.synctex.gz
-
-# Local/editor
-.vscode/
-.idea/
-.DS_Store
-```
-
-If you want to include a completed evidence summary, commit `results.md` and the top-level `series_manifest.json`, but avoid committing the full generated NPZ/CSV artifact tree unless intentionally publishing a frozen evidence bundle.
 
 ## Environment
 
@@ -271,7 +228,7 @@ python run_unified_pipeline.py `
   --rho 0.10 `
   --lambda-safety-factor 3.0 `
   --null-scale 0.49 `
-  --author-npz data\extracted_subset\data_to_Jon\data\processed\fig3\data_better.npz `
+  --author-npz data\fig3\data_better.npz `
   --author-temp-key tem `
   --author-observable-key M_MC
 ```

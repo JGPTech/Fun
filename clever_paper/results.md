@@ -1,8 +1,8 @@
 # Unified Pipeline Results: Tests 1-9
 
-- Series directory: `C:\clever_paper\analysis\unified_test_series\series_20260621_121023`
-- Manifest: `C:\clever_paper\analysis\unified_test_series\series_20260621_121023\series_manifest.json`
-- Author comparison data: `C:\clever_paper\data\extracted_subset\data_to_Jon\data\processed\fig3\data_better.npz`
+- Series directory: `clever_paper\analysis\unified_test_series\series_20260621_121023`
+- Manifest: `clever_paper\analysis\unified_test_series\series_20260621_121023\series_manifest.json`
+- Author comparison data: `clever_paper\data\fig3\data_better.npz`
 - Generated: `2026-06-21T11:01:54`
 - Completed tests included: `01, 02, 03, 04, 05, 06, 07, 08, 09`
 

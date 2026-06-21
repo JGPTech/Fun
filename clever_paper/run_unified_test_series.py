@@ -25,7 +25,7 @@ from pathlib import Path
 from typing import Any
 
 
-DEFAULT_AUTHOR_NPZ = "data/extracted_subset/data_to_Jon/data/processed/fig3/data_better.npz"
+DEFAULT_AUTHOR_NPZ = "data/fig3/data_better.npz"
 DEFAULT_AUTHOR_TEMP_KEY = "tem"
 DEFAULT_AUTHOR_OBS_KEY = "M_MC"
 DEFAULT_TEMPS = "0.40,0.56,0.64,0.72,0.76,0.80,0.84,0.88,0.96"
