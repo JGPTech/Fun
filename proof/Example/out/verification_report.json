@@ -1,0 +1,353 @@
+{
+  "base_case": {
+    "expected": "1/78125",
+    "f_8": "1/78125",
+    "f_8_float": 1.28e-05,
+    "passed": true
+  },
+  "bottom_up_verification": {
+    "elapsed_seconds": 0.14626860618591309,
+    "max_total": 28,
+    "mismatch_count_capped": 0,
+    "mismatches": [],
+    "passed": true,
+    "states_checked": 35960
+  },
+  "cache_info": {
+    "best_action": "CacheInfo(hits=951392, misses=890, maxsize=None, currsize=890)",
+    "exact_value": "CacheInfo(hits=74725, misses=49647, maxsize=None, currsize=49647)"
+  },
+  "config": {
+    "max_x": 80,
+    "scaling_min_x": 20,
+    "seed": 1234,
+    "thresholds": [
+      0.01,
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      0.9,
+      0.95,
+      0.99
+    ],
+    "trials": 5000,
+    "verify_max_horses": 28
+  },
+  "constants": {
+    "P_DOWNGRADE": "3/10",
+    "P_SAME": "1/2",
+    "P_T1_STAY": "4/5",
+    "P_UPGRADE": "1/5"
+  },
+  "elapsed_seconds": 1.9657478332519531,
+  "finite_window_scaling_fit": {
+    "alpha": 2.3338883576772265,
+    "fit_available": true,
+    "intercept": -12.009523164630078,
+    "interpretation": "Empirical finite-window fit only; probabilities are bounded by 1.",
+    "min_x": 20,
+    "model": "log(P) ~= intercept + alpha*log(X)",
+    "n_points": 16,
+    "r_squared": 0.9891552936117262
+  },
+  "monte_carlo": {
+    "rows": [
+      {
+        "absolute_error": 1.28e-05,
+        "empirical": 0.0,
+        "exact": 1.28e-05,
+        "trials": 5000,
+        "wins": 0,
+        "x": 8
+      },
+      {
+        "absolute_error": 0.00031015424,
+        "empirical": 0.0008,
+        "exact": 0.00048984576,
+        "trials": 5000,
+        "wins": 4,
+        "x": 12
+      },
+      {
+        "absolute_error": 0.0008458067169280002,
+        "empirical": 0.003,
+        "exact": 0.002154193283072,
+        "trials": 5000,
+        "wins": 15,
+        "x": 16
+      },
+      {
+        "absolute_error": 0.0002456636759992914,
+        "empirical": 0.01,
+        "exact": 0.009754336324000709,
+        "trials": 5000,
+        "wins": 50,
+        "x": 24
+      },
+      {
+        "absolute_error": 0.0023342022237814453,
+        "empirical": 0.0246,
+        "exact": 0.022265797776218555,
+        "trials": 5000,
+        "wins": 123,
+        "x": 32
+      },
+      {
+        "absolute_error": 0.0055569384900468755,
+        "empirical": 0.0514,
+        "exact": 0.05695693849004688,
+        "trials": 5000,
+        "wins": 257,
+        "x": 48
+      },
+      {
+        "absolute_error": 0.0007604458603006903,
+        "empirical": 0.0978,
+        "exact": 0.09856044586030069,
+        "trials": 5000,
+        "wins": 489,
+        "x": 64
+      }
+    ],
+    "seed": 1234,
+    "skipped": false,
+    "trials_per_x": 5000
+  },
+  "probability_samples": [
+    {
+      "log_probability": -11.266065387038703,
+      "log_x": 2.0794415416798357,
+      "probability": 1.28e-05,
+      "probability_fraction": "1/78125",
+      "probability_percent": 0.0012799999999999999,
+      "x": 8
+    },
+    {
+      "log_probability": -8.886519252908528,
+      "log_x": 2.302585092994046,
+      "probability": 0.00013824,
+      "probability_fraction": "54/390625",
+      "probability_percent": 0.013824000000000001,
+      "x": 10
+    },
+    {
+      "log_probability": -7.621419991922015,
+      "log_x": 2.4849066497880004,
+      "probability": 0.00048984576,
+      "probability_fraction": "95673/195312500",
+      "probability_percent": 0.048984576,
+      "x": 12
+    },
+    {
+      "log_probability": -6.770242854789898,
+      "log_x": 2.6390573296152584,
+      "probability": 0.0011474159616,
+      "probability_fraction": "5602617/4882812500",
+      "probability_percent": 0.11474159616000001,
+      "x": 14
+    },
+    {
+      "log_probability": -6.140338972113927,
+      "log_x": 2.772588722239781,
+      "probability": 0.002154193283072,
+      "probability_fraction": "1051852189/488281250000",
+      "probability_percent": 0.21541932830719998,
+      "x": 16
+    },
+    {
+      "log_probability": -5.64767437778276,
+      "log_x": 2.8903717578961645,
+      "probability": 0.00352570670972928,
+      "probability_fraction": "2689900749/762939453125",
+      "probability_percent": 0.352570670972928,
+      "x": 18
+    },
+    {
+      "log_probability": -5.247742958087054,
+      "log_x": 2.995732273553991,
+      "probability": 0.005259375644263219,
+      "probability_fraction": "6420136284501/1220703125000000",
+      "probability_percent": 0.5259375644263219,
+      "x": 20
+    },
+    {
+      "log_probability": -4.9141553823815896,
+      "log_x": 3.091042453358316,
+      "probability": 0.007341916386299314,
+      "probability_fraction": "224057506906107/30517578125000000",
+      "probability_percent": 0.7341916386299314,
+      "x": 22
+    },
+    {
+      "log_probability": -4.630043341665313,
+      "log_x": 3.1780538303479458,
+      "probability": 0.009754336324000709,
+      "probability_fraction": "29767872082521697/3051757812500000000",
+      "probability_percent": 0.9754336324000709,
+      "x": 24
+    },
+    {
+      "log_probability": -4.384024267885802,
+      "log_x": 3.258096538021482,
+      "probability": 0.012475054509117034,
+      "probability_fraction": "475885563244515747/38146972656250000000",
+      "probability_percent": 1.2475054509117034,
+      "x": 26
+    },
+    {
+      "log_probability": -4.168093523692787,
+      "log_x": 3.332204510175204,
+      "probability": 0.015481747591376296,
+      "probability_fraction": "118116360407839167297/7629394531250000000000",
+      "probability_percent": 1.5481747591376296,
+      "x": 28
+    },
+    {
+      "log_probability": -3.97643414280916,
+      "log_x": 3.4011973816621555,
+      "probability": 0.018752388597566488,
+      "probability_fraction": "3576734275353715272717/190734863281250000000000",
+      "probability_percent": 1.8752388597566487,
+      "x": 30
+    },
+    {
+      "log_probability": -3.5774261603154827,
+      "log_x": 3.5553480614894135,
+      "probability": 0.02794753824630039,
+      "probability_fraction": "66632123580695132110868139/2384185791015625000000000000",
+      "probability_percent": 2.794753824630039,
+      "x": 35
+    },
+    {
+      "log_probability": -3.260633292418214,
+      "log_x": 3.6888794541139363,
+      "probability": 0.038364094632527164,
+      "probability_fraction": "4573356465402503739460264395721/119209289550781250000000000000000",
+      "probability_percent": 3.8364094632527164,
+      "x": 40
+    },
+    {
+      "log_probability": -3.000752984114285,
+      "log_x": 3.8066624897703196,
+      "probability": 0.04974959360700656,
+      "probability_fraction": "74132671366641759516815196254479791/1490116119384765625000000000000000000",
+      "probability_percent": 4.974959360700656,
+      "x": 45
+    },
+    {
+      "log_probability": -2.782336241326459,
+      "log_x": 3.912023005428146,
+      "probability": 0.06189373962464029,
+      "probability_fraction": "144107592349500140419037399789479111713/2328306436538696289062500000000000000000",
+      "probability_percent": 6.189373962464028,
+      "x": 50
+    },
+    {
+      "log_probability": -2.5953185534797028,
+      "log_x": 4.007333185232471,
+      "probability": 0.07462210115785886,
+      "probability_fraction": "8687155921694224255066281191883560262341061/116415321826934814453125000000000000000000000",
+      "probability_percent": 7.462210115785886,
+      "x": 55
+    },
+    {
+      "log_probability": -2.4328047844446026,
+      "log_x": 4.0943445622221,
+      "probability": 0.08779025420504087,
+      "probability_fraction": "1022013069654825073607736113458064757011275733937/11641532182693481445312500000000000000000000000000",
+      "probability_percent": 8.779025420504087,
+      "x": 60
+    },
+    {
+      "log_probability": -2.289878396345681,
+      "log_x": 4.174387269895637,
+      "probability": 0.10127877697447145,
+      "probability_fraction": "14738001769651811584270365913033758071689132499717613/145519152283668518066406250000000000000000000000000000",
+      "probability_percent": 10.127877697447145,
+      "x": 65
+    },
+    {
+      "log_probability": -2.1629183210244505,
+      "log_x": 4.248495242049359,
+      "probability": 0.11498905592414453,
+      "probability_fraction": "209163874249760802983102121813955870653097043088643718487/1818989403545856475830078125000000000000000000000000000000",
+      "probability_percent": 11.498905592414452,
+      "x": 70
+    },
+    {
+      "log_probability": -2.0491855940860715,
+      "log_x": 4.31748811353631,
+      "probability": 0.1288397887583696,
+      "probability_fraction": "585895526266402147243144993521565233542593023404957185036893/4547473508864641189575195312500000000000000000000000000000000",
+      "probability_percent": 12.88397887583696,
+      "x": 75
+    },
+    {
+      "log_probability": -1.9465618568565604,
+      "log_x": 4.382026634673881,
+      "probability": 0.14276407207345101,
+      "probability_fraction": "162303958942915213459490434747595369066158145501424974167488087421/1136868377216160297393798828125000000000000000000000000000000000000",
+      "probability_percent": 14.276407207345102,
+      "x": 80
+    }
+  ],
+  "sampled_thresholds": [
+    {
+      "found_in_computed_range": true,
+      "probability": 0.012475054509117034,
+      "target": 0.01,
+      "target_percent": 1.0,
+      "x": 26
+    },
+    {
+      "found_in_computed_range": true,
+      "probability": 0.10127877697447145,
+      "target": 0.1,
+      "target_percent": 10.0,
+      "x": 65
+    },
+    {
+      "found_in_computed_range": false,
+      "probability": null,
+      "target": 0.25,
+      "target_percent": 25.0,
+      "x": null
+    },
+    {
+      "found_in_computed_range": false,
+      "probability": null,
+      "target": 0.5,
+      "target_percent": 50.0,
+      "x": null
+    },
+    {
+      "found_in_computed_range": false,
+      "probability": null,
+      "target": 0.75,
+      "target_percent": 75.0,
+      "x": null
+    },
+    {
+      "found_in_computed_range": false,
+      "probability": null,
+      "target": 0.9,
+      "target_percent": 90.0,
+      "x": null
+    },
+    {
+      "found_in_computed_range": false,
+      "probability": null,
+      "target": 0.95,
+      "target_percent": 95.0,
+      "x": null
+    },
+    {
+      "found_in_computed_range": false,
+      "probability": null,
+      "target": 0.99,
+      "target_percent": 99.0,
+      "x": null
+    }
+  ]
+}

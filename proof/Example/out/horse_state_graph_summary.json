@@ -1,0 +1,16 @@
+{
+  "edge_action_counts": {
+    "combine_T1": 112,
+    "combine_T2": 105,
+    "combine_T3": 30
+  },
+  "edge_count": 247,
+  "initial_x": 12,
+  "kind_counts": {
+    "active": 76,
+    "failure": 7,
+    "success": 10
+  },
+  "lab_annotations_available": false,
+  "node_count": 93
+}

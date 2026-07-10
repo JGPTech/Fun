@@ -1,0 +1,3356 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d14" for="edge" attr.name="label" attr.type="string"/>
+<key id="d13" for="edge" attr.name="probability_float" attr.type="double"/>
+<key id="d12" for="edge" attr.name="probability" attr.type="string"/>
+<key id="d11" for="edge" attr.name="outcome" attr.type="string"/>
+<key id="d10" for="edge" attr.name="action" attr.type="string"/>
+<key id="d9" for="node" attr.name="legal_actions" attr.type="string"/>
+<key id="d8" for="node" attr.name="color" attr.type="string"/>
+<key id="d7" for="node" attr.name="kind" attr.type="string"/>
+<key id="d6" for="node" attr.name="tier_weight" attr.type="long"/>
+<key id="d5" for="node" attr.name="total" attr.type="long"/>
+<key id="d4" for="node" attr.name="t4" attr.type="long"/>
+<key id="d3" for="node" attr.name="t3" attr.type="long"/>
+<key id="d2" for="node" attr.name="t2" attr.type="long"/>
+<key id="d1" for="node" attr.name="t1" attr.type="long"/>
+<key id="d0" for="node" attr.name="label" attr.type="string"/>
+<graph edgedefault="directed"><node id="12,0,0,0">
+  <data key="d0">(12,0,0,0)</data>
+  <data key="d1">12</data>
+  <data key="d2">0</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">12</data>
+  <data key="d6">12</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="10,1,0,0">
+  <data key="d0">(10,1,0,0)</data>
+  <data key="d1">10</data>
+  <data key="d2">1</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">11</data>
+  <data key="d6">12</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="11,0,0,0">
+  <data key="d0">(11,0,0,0)</data>
+  <data key="d1">11</data>
+  <data key="d2">0</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">11</data>
+  <data key="d6">11</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="8,2,0,0">
+  <data key="d0">(8,2,0,0)</data>
+  <data key="d1">8</data>
+  <data key="d2">2</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">10</data>
+  <data key="d6">12</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="9,1,0,0">
+  <data key="d0">(9,1,0,0)</data>
+  <data key="d1">9</data>
+  <data key="d2">1</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">10</data>
+  <data key="d6">11</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="10,0,0,0">
+  <data key="d0">(10,0,0,0)</data>
+  <data key="d1">10</data>
+  <data key="d2">0</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">10</data>
+  <data key="d6">10</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="6,3,0,0">
+  <data key="d0">(6,3,0,0)</data>
+  <data key="d1">6</data>
+  <data key="d2">3</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">9</data>
+  <data key="d6">12</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="7,2,0,0">
+  <data key="d0">(7,2,0,0)</data>
+  <data key="d1">7</data>
+  <data key="d2">2</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">9</data>
+  <data key="d6">11</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="8,0,1,0">
+  <data key="d0">(8,0,1,0)</data>
+  <data key="d1">8</data>
+  <data key="d2">0</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">9</data>
+  <data key="d6">12</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="8,1,0,0">
+  <data key="d0">(8,1,0,0)</data>
+  <data key="d1">8</data>
+  <data key="d2">1</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">9</data>
+  <data key="d6">10</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="9,0,0,0">
+  <data key="d0">(9,0,0,0)</data>
+  <data key="d1">9</data>
+  <data key="d2">0</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">9</data>
+  <data key="d6">9</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="4,4,0,0">
+  <data key="d0">(4,4,0,0)</data>
+  <data key="d1">4</data>
+  <data key="d2">4</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">8</data>
+  <data key="d6">12</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="5,3,0,0">
+  <data key="d0">(5,3,0,0)</data>
+  <data key="d1">5</data>
+  <data key="d2">3</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">8</data>
+  <data key="d6">11</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="6,1,1,0">
+  <data key="d0">(6,1,1,0)</data>
+  <data key="d1">6</data>
+  <data key="d2">1</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">8</data>
+  <data key="d6">12</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="6,2,0,0">
+  <data key="d0">(6,2,0,0)</data>
+  <data key="d1">6</data>
+  <data key="d2">2</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">8</data>
+  <data key="d6">10</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="7,1,0,0">
+  <data key="d0">(7,1,0,0)</data>
+  <data key="d1">7</data>
+  <data key="d2">1</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">8</data>
+  <data key="d6">9</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="7,0,1,0">
+  <data key="d0">(7,0,1,0)</data>
+  <data key="d1">7</data>
+  <data key="d2">0</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">8</data>
+  <data key="d6">11</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="8,0,0,0">
+  <data key="d0">(8,0,0,0)</data>
+  <data key="d1">8</data>
+  <data key="d2">0</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">8</data>
+  <data key="d6">8</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="2,5,0,0">
+  <data key="d0">(2,5,0,0)</data>
+  <data key="d1">2</data>
+  <data key="d2">5</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">7</data>
+  <data key="d6">12</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="3,4,0,0">
+  <data key="d0">(3,4,0,0)</data>
+  <data key="d1">3</data>
+  <data key="d2">4</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">7</data>
+  <data key="d6">11</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="4,2,1,0">
+  <data key="d0">(4,2,1,0)</data>
+  <data key="d1">4</data>
+  <data key="d2">2</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">7</data>
+  <data key="d6">12</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="4,3,0,0">
+  <data key="d0">(4,3,0,0)</data>
+  <data key="d1">4</data>
+  <data key="d2">3</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">7</data>
+  <data key="d6">10</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="5,2,0,0">
+  <data key="d0">(5,2,0,0)</data>
+  <data key="d1">5</data>
+  <data key="d2">2</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">7</data>
+  <data key="d6">9</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="5,1,1,0">
+  <data key="d0">(5,1,1,0)</data>
+  <data key="d1">5</data>
+  <data key="d2">1</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">7</data>
+  <data key="d6">11</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="6,1,0,0">
+  <data key="d0">(6,1,0,0)</data>
+  <data key="d1">6</data>
+  <data key="d2">1</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">7</data>
+  <data key="d6">8</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="6,0,1,0">
+  <data key="d0">(6,0,1,0)</data>
+  <data key="d1">6</data>
+  <data key="d2">0</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">7</data>
+  <data key="d6">10</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="7,0,0,0">
+  <data key="d0">(7,0,0,0)</data>
+  <data key="d1">7</data>
+  <data key="d2">0</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">7</data>
+  <data key="d6">7</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="0,6,0,0">
+  <data key="d0">(0,6,0,0)</data>
+  <data key="d1">0</data>
+  <data key="d2">6</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">6</data>
+  <data key="d6">12</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T2</data>
+</node>
+<node id="1,5,0,0">
+  <data key="d0">(1,5,0,0)</data>
+  <data key="d1">1</data>
+  <data key="d2">5</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">6</data>
+  <data key="d6">11</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T2</data>
+</node>
+<node id="2,3,1,0">
+  <data key="d0">(2,3,1,0)</data>
+  <data key="d1">2</data>
+  <data key="d2">3</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">6</data>
+  <data key="d6">12</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="2,4,0,0">
+  <data key="d0">(2,4,0,0)</data>
+  <data key="d1">2</data>
+  <data key="d2">4</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">6</data>
+  <data key="d6">10</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="3,3,0,0">
+  <data key="d0">(3,3,0,0)</data>
+  <data key="d1">3</data>
+  <data key="d2">3</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">6</data>
+  <data key="d6">9</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="3,2,1,0">
+  <data key="d0">(3,2,1,0)</data>
+  <data key="d1">3</data>
+  <data key="d2">2</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">6</data>
+  <data key="d6">11</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="4,2,0,0">
+  <data key="d0">(4,2,0,0)</data>
+  <data key="d1">4</data>
+  <data key="d2">2</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">6</data>
+  <data key="d6">8</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="4,0,2,0">
+  <data key="d0">(4,0,2,0)</data>
+  <data key="d1">4</data>
+  <data key="d2">0</data>
+  <data key="d3">2</data>
+  <data key="d4">0</data>
+  <data key="d5">6</data>
+  <data key="d6">12</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T3</data>
+</node>
+<node id="4,1,1,0">
+  <data key="d0">(4,1,1,0)</data>
+  <data key="d1">4</data>
+  <data key="d2">1</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">6</data>
+  <data key="d6">10</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="5,0,1,0">
+  <data key="d0">(5,0,1,0)</data>
+  <data key="d1">5</data>
+  <data key="d2">0</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">6</data>
+  <data key="d6">9</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="5,1,0,0">
+  <data key="d0">(5,1,0,0)</data>
+  <data key="d1">5</data>
+  <data key="d2">1</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">6</data>
+  <data key="d6">7</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="6,0,0,0">
+  <data key="d0">(6,0,0,0)</data>
+  <data key="d1">6</data>
+  <data key="d2">0</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">6</data>
+  <data key="d6">6</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="0,4,1,0">
+  <data key="d0">(0,4,1,0)</data>
+  <data key="d1">0</data>
+  <data key="d2">4</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">5</data>
+  <data key="d6">12</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T2</data>
+</node>
+<node id="0,5,0,0">
+  <data key="d0">(0,5,0,0)</data>
+  <data key="d1">0</data>
+  <data key="d2">5</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">5</data>
+  <data key="d6">10</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T2</data>
+</node>
+<node id="1,4,0,0">
+  <data key="d0">(1,4,0,0)</data>
+  <data key="d1">1</data>
+  <data key="d2">4</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">5</data>
+  <data key="d6">9</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T2</data>
+</node>
+<node id="1,3,1,0">
+  <data key="d0">(1,3,1,0)</data>
+  <data key="d1">1</data>
+  <data key="d2">3</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">5</data>
+  <data key="d6">11</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T2</data>
+</node>
+<node id="2,3,0,0">
+  <data key="d0">(2,3,0,0)</data>
+  <data key="d1">2</data>
+  <data key="d2">3</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">5</data>
+  <data key="d6">8</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="2,1,2,0">
+  <data key="d0">(2,1,2,0)</data>
+  <data key="d1">2</data>
+  <data key="d2">1</data>
+  <data key="d3">2</data>
+  <data key="d4">0</data>
+  <data key="d5">5</data>
+  <data key="d6">12</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T3</data>
+</node>
+<node id="2,2,1,0">
+  <data key="d0">(2,2,1,0)</data>
+  <data key="d1">2</data>
+  <data key="d2">2</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">5</data>
+  <data key="d6">10</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="3,1,1,0">
+  <data key="d0">(3,1,1,0)</data>
+  <data key="d1">3</data>
+  <data key="d2">1</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">5</data>
+  <data key="d6">9</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="3,2,0,0">
+  <data key="d0">(3,2,0,0)</data>
+  <data key="d1">3</data>
+  <data key="d2">2</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">5</data>
+  <data key="d6">7</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="4,1,0,0">
+  <data key="d0">(4,1,0,0)</data>
+  <data key="d1">4</data>
+  <data key="d2">1</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">5</data>
+  <data key="d6">6</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="3,0,2,0">
+  <data key="d0">(3,0,2,0)</data>
+  <data key="d1">3</data>
+  <data key="d2">0</data>
+  <data key="d3">2</data>
+  <data key="d4">0</data>
+  <data key="d5">5</data>
+  <data key="d6">11</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T3</data>
+</node>
+<node id="4,0,1,0">
+  <data key="d0">(4,0,1,0)</data>
+  <data key="d1">4</data>
+  <data key="d2">0</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">5</data>
+  <data key="d6">8</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="5,0,0,0">
+  <data key="d0">(5,0,0,0)</data>
+  <data key="d1">5</data>
+  <data key="d2">0</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">5</data>
+  <data key="d6">5</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="4,0,0,1">
+  <data key="d0">(4,0,0,1)</data>
+  <data key="d1">4</data>
+  <data key="d2">0</data>
+  <data key="d3">0</data>
+  <data key="d4">1</data>
+  <data key="d5">5</data>
+  <data key="d6">12</data>
+  <data key="d7">success</data>
+  <data key="d8">#2ecc71</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="0,2,2,0">
+  <data key="d0">(0,2,2,0)</data>
+  <data key="d1">0</data>
+  <data key="d2">2</data>
+  <data key="d3">2</data>
+  <data key="d4">0</data>
+  <data key="d5">4</data>
+  <data key="d6">12</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T2,combine_T3</data>
+</node>
+<node id="0,3,1,0">
+  <data key="d0">(0,3,1,0)</data>
+  <data key="d1">0</data>
+  <data key="d2">3</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">4</data>
+  <data key="d6">10</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T2</data>
+</node>
+<node id="1,2,1,0">
+  <data key="d0">(1,2,1,0)</data>
+  <data key="d1">1</data>
+  <data key="d2">2</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">4</data>
+  <data key="d6">9</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T2</data>
+</node>
+<node id="0,4,0,0">
+  <data key="d0">(0,4,0,0)</data>
+  <data key="d1">0</data>
+  <data key="d2">4</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">4</data>
+  <data key="d6">8</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T2</data>
+</node>
+<node id="1,3,0,0">
+  <data key="d0">(1,3,0,0)</data>
+  <data key="d1">1</data>
+  <data key="d2">3</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">4</data>
+  <data key="d6">7</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T2</data>
+</node>
+<node id="2,2,0,0">
+  <data key="d0">(2,2,0,0)</data>
+  <data key="d1">2</data>
+  <data key="d2">2</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">4</data>
+  <data key="d6">6</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T2</data>
+</node>
+<node id="1,1,2,0">
+  <data key="d0">(1,1,2,0)</data>
+  <data key="d1">1</data>
+  <data key="d2">1</data>
+  <data key="d3">2</data>
+  <data key="d4">0</data>
+  <data key="d5">4</data>
+  <data key="d6">11</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T3</data>
+</node>
+<node id="2,1,1,0">
+  <data key="d0">(2,1,1,0)</data>
+  <data key="d1">2</data>
+  <data key="d2">1</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">4</data>
+  <data key="d6">8</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="3,1,0,0">
+  <data key="d0">(3,1,0,0)</data>
+  <data key="d1">3</data>
+  <data key="d2">1</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">4</data>
+  <data key="d6">5</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="2,1,0,1">
+  <data key="d0">(2,1,0,1)</data>
+  <data key="d1">2</data>
+  <data key="d2">1</data>
+  <data key="d3">0</data>
+  <data key="d4">1</data>
+  <data key="d5">4</data>
+  <data key="d6">12</data>
+  <data key="d7">success</data>
+  <data key="d8">#2ecc71</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="2,0,2,0">
+  <data key="d0">(2,0,2,0)</data>
+  <data key="d1">2</data>
+  <data key="d2">0</data>
+  <data key="d3">2</data>
+  <data key="d4">0</data>
+  <data key="d5">4</data>
+  <data key="d6">10</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1,combine_T3</data>
+</node>
+<node id="3,0,1,0">
+  <data key="d0">(3,0,1,0)</data>
+  <data key="d1">3</data>
+  <data key="d2">0</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">4</data>
+  <data key="d6">7</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="4,0,0,0">
+  <data key="d0">(4,0,0,0)</data>
+  <data key="d1">4</data>
+  <data key="d2">0</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">4</data>
+  <data key="d6">4</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="3,0,0,1">
+  <data key="d0">(3,0,0,1)</data>
+  <data key="d1">3</data>
+  <data key="d2">0</data>
+  <data key="d3">0</data>
+  <data key="d4">1</data>
+  <data key="d5">4</data>
+  <data key="d6">11</data>
+  <data key="d7">success</data>
+  <data key="d8">#2ecc71</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="0,0,3,0">
+  <data key="d0">(0,0,3,0)</data>
+  <data key="d1">0</data>
+  <data key="d2">0</data>
+  <data key="d3">3</data>
+  <data key="d4">0</data>
+  <data key="d5">3</data>
+  <data key="d6">12</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T3</data>
+</node>
+<node id="0,1,2,0">
+  <data key="d0">(0,1,2,0)</data>
+  <data key="d1">0</data>
+  <data key="d2">1</data>
+  <data key="d3">2</data>
+  <data key="d4">0</data>
+  <data key="d5">3</data>
+  <data key="d6">10</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T3</data>
+</node>
+<node id="1,0,2,0">
+  <data key="d0">(1,0,2,0)</data>
+  <data key="d1">1</data>
+  <data key="d2">0</data>
+  <data key="d3">2</data>
+  <data key="d4">0</data>
+  <data key="d5">3</data>
+  <data key="d6">9</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T3</data>
+</node>
+<node id="0,2,0,1">
+  <data key="d0">(0,2,0,1)</data>
+  <data key="d1">0</data>
+  <data key="d2">2</data>
+  <data key="d3">0</data>
+  <data key="d4">1</data>
+  <data key="d5">3</data>
+  <data key="d6">12</data>
+  <data key="d7">success</data>
+  <data key="d8">#2ecc71</data>
+  <data key="d9">combine_T2</data>
+</node>
+<node id="0,2,1,0">
+  <data key="d0">(0,2,1,0)</data>
+  <data key="d1">0</data>
+  <data key="d2">2</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">3</data>
+  <data key="d6">8</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T2</data>
+</node>
+<node id="0,3,0,0">
+  <data key="d0">(0,3,0,0)</data>
+  <data key="d1">0</data>
+  <data key="d2">3</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">3</data>
+  <data key="d6">6</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T2</data>
+</node>
+<node id="1,1,1,0">
+  <data key="d0">(1,1,1,0)</data>
+  <data key="d1">1</data>
+  <data key="d2">1</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">3</data>
+  <data key="d6">7</data>
+  <data key="d7">failure</data>
+  <data key="d8">#e74c3c</data>
+  <data key="d9"></data>
+</node>
+<node id="2,0,1,0">
+  <data key="d0">(2,0,1,0)</data>
+  <data key="d1">2</data>
+  <data key="d2">0</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">3</data>
+  <data key="d6">6</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="1,2,0,0">
+  <data key="d0">(1,2,0,0)</data>
+  <data key="d1">1</data>
+  <data key="d2">2</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">3</data>
+  <data key="d6">5</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T2</data>
+</node>
+<node id="2,1,0,0">
+  <data key="d0">(2,1,0,0)</data>
+  <data key="d1">2</data>
+  <data key="d2">1</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">3</data>
+  <data key="d6">4</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="3,0,0,0">
+  <data key="d0">(3,0,0,0)</data>
+  <data key="d1">3</data>
+  <data key="d2">0</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">3</data>
+  <data key="d6">3</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="1,1,0,1">
+  <data key="d0">(1,1,0,1)</data>
+  <data key="d1">1</data>
+  <data key="d2">1</data>
+  <data key="d3">0</data>
+  <data key="d4">1</data>
+  <data key="d5">3</data>
+  <data key="d6">11</data>
+  <data key="d7">success</data>
+  <data key="d8">#2ecc71</data>
+  <data key="d9"></data>
+</node>
+<node id="2,0,0,1">
+  <data key="d0">(2,0,0,1)</data>
+  <data key="d1">2</data>
+  <data key="d2">0</data>
+  <data key="d3">0</data>
+  <data key="d4">1</data>
+  <data key="d5">3</data>
+  <data key="d6">10</data>
+  <data key="d7">success</data>
+  <data key="d8">#2ecc71</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="0,0,1,1">
+  <data key="d0">(0,0,1,1)</data>
+  <data key="d1">0</data>
+  <data key="d2">0</data>
+  <data key="d3">1</data>
+  <data key="d4">1</data>
+  <data key="d5">2</data>
+  <data key="d6">12</data>
+  <data key="d7">success</data>
+  <data key="d8">#2ecc71</data>
+  <data key="d9"></data>
+</node>
+<node id="0,0,2,0">
+  <data key="d0">(0,0,2,0)</data>
+  <data key="d1">0</data>
+  <data key="d2">0</data>
+  <data key="d3">2</data>
+  <data key="d4">0</data>
+  <data key="d5">2</data>
+  <data key="d6">8</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T3</data>
+</node>
+<node id="0,1,1,0">
+  <data key="d0">(0,1,1,0)</data>
+  <data key="d1">0</data>
+  <data key="d2">1</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">2</data>
+  <data key="d6">6</data>
+  <data key="d7">failure</data>
+  <data key="d8">#e74c3c</data>
+  <data key="d9"></data>
+</node>
+<node id="0,1,0,1">
+  <data key="d0">(0,1,0,1)</data>
+  <data key="d1">0</data>
+  <data key="d2">1</data>
+  <data key="d3">0</data>
+  <data key="d4">1</data>
+  <data key="d5">2</data>
+  <data key="d6">10</data>
+  <data key="d7">success</data>
+  <data key="d8">#2ecc71</data>
+  <data key="d9"></data>
+</node>
+<node id="0,2,0,0">
+  <data key="d0">(0,2,0,0)</data>
+  <data key="d1">0</data>
+  <data key="d2">2</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">2</data>
+  <data key="d6">4</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T2</data>
+</node>
+<node id="1,0,0,1">
+  <data key="d0">(1,0,0,1)</data>
+  <data key="d1">1</data>
+  <data key="d2">0</data>
+  <data key="d3">0</data>
+  <data key="d4">1</data>
+  <data key="d5">2</data>
+  <data key="d6">9</data>
+  <data key="d7">success</data>
+  <data key="d8">#2ecc71</data>
+  <data key="d9"></data>
+</node>
+<node id="1,0,1,0">
+  <data key="d0">(1,0,1,0)</data>
+  <data key="d1">1</data>
+  <data key="d2">0</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">2</data>
+  <data key="d6">5</data>
+  <data key="d7">failure</data>
+  <data key="d8">#e74c3c</data>
+  <data key="d9"></data>
+</node>
+<node id="1,1,0,0">
+  <data key="d0">(1,1,0,0)</data>
+  <data key="d1">1</data>
+  <data key="d2">1</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">2</data>
+  <data key="d6">3</data>
+  <data key="d7">failure</data>
+  <data key="d8">#e74c3c</data>
+  <data key="d9"></data>
+</node>
+<node id="2,0,0,0">
+  <data key="d0">(2,0,0,0)</data>
+  <data key="d1">2</data>
+  <data key="d2">0</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">2</data>
+  <data key="d6">2</data>
+  <data key="d7">active</data>
+  <data key="d8">#4da3ff</data>
+  <data key="d9">combine_T1</data>
+</node>
+<node id="0,0,0,1">
+  <data key="d0">(0,0,0,1)</data>
+  <data key="d1">0</data>
+  <data key="d2">0</data>
+  <data key="d3">0</data>
+  <data key="d4">1</data>
+  <data key="d5">1</data>
+  <data key="d6">8</data>
+  <data key="d7">success</data>
+  <data key="d8">#2ecc71</data>
+  <data key="d9"></data>
+</node>
+<node id="0,0,1,0">
+  <data key="d0">(0,0,1,0)</data>
+  <data key="d1">0</data>
+  <data key="d2">0</data>
+  <data key="d3">1</data>
+  <data key="d4">0</data>
+  <data key="d5">1</data>
+  <data key="d6">4</data>
+  <data key="d7">failure</data>
+  <data key="d8">#e74c3c</data>
+  <data key="d9"></data>
+</node>
+<node id="0,1,0,0">
+  <data key="d0">(0,1,0,0)</data>
+  <data key="d1">0</data>
+  <data key="d2">1</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">1</data>
+  <data key="d6">2</data>
+  <data key="d7">failure</data>
+  <data key="d8">#e74c3c</data>
+  <data key="d9"></data>
+</node>
+<node id="1,0,0,0">
+  <data key="d0">(1,0,0,0)</data>
+  <data key="d1">1</data>
+  <data key="d2">0</data>
+  <data key="d3">0</data>
+  <data key="d4">0</data>
+  <data key="d5">1</data>
+  <data key="d6">1</data>
+  <data key="d7">failure</data>
+  <data key="d8">#e74c3c</data>
+  <data key="d9"></data>
+</node>
+<edge source="12,0,0,0" target="10,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="12,0,0,0" target="11,0,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="10,1,0,0" target="8,2,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="10,1,0,0" target="9,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="11,0,0,0" target="9,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="11,0,0,0" target="10,0,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="8,2,0,0" target="6,3,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="8,2,0,0" target="7,2,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="8,2,0,0" target="8,0,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="8,2,0,0" target="8,1,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="8,2,0,0" target="9,0,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="9,1,0,0" target="7,2,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="9,1,0,0" target="8,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="10,0,0,0" target="8,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="10,0,0,0" target="9,0,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="6,3,0,0" target="4,4,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="6,3,0,0" target="5,3,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="6,3,0,0" target="6,1,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="6,3,0,0" target="6,2,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="6,3,0,0" target="7,1,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="7,2,0,0" target="5,3,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="7,2,0,0" target="6,2,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="7,2,0,0" target="7,0,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="7,2,0,0" target="7,1,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="7,2,0,0" target="8,0,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="8,0,1,0" target="6,1,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="8,0,1,0" target="7,0,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="8,1,0,0" target="6,2,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="8,1,0,0" target="7,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="9,0,0,0" target="7,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="9,0,0,0" target="8,0,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="4,4,0,0" target="2,5,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="4,4,0,0" target="3,4,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="4,4,0,0" target="4,2,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="4,4,0,0" target="4,3,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="4,4,0,0" target="5,2,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="5,3,0,0" target="3,4,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="5,3,0,0" target="4,3,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="5,3,0,0" target="5,1,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="5,3,0,0" target="5,2,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="5,3,0,0" target="6,1,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="6,1,1,0" target="4,2,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="6,1,1,0" target="5,1,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="6,2,0,0" target="4,3,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="6,2,0,0" target="5,2,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="6,2,0,0" target="6,0,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="6,2,0,0" target="6,1,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="6,2,0,0" target="7,0,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="7,1,0,0" target="5,2,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="7,1,0,0" target="6,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="7,0,1,0" target="5,1,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="7,0,1,0" target="6,0,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="8,0,0,0" target="6,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="8,0,0,0" target="7,0,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="2,5,0,0" target="0,6,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="2,5,0,0" target="1,5,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="2,5,0,0" target="2,3,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="2,5,0,0" target="2,4,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="2,5,0,0" target="3,3,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="3,4,0,0" target="1,5,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="3,4,0,0" target="2,4,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="3,4,0,0" target="3,2,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="3,4,0,0" target="3,3,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="3,4,0,0" target="4,2,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="4,2,1,0" target="2,3,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="4,2,1,0" target="3,2,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="4,2,1,0" target="4,0,2,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="4,2,1,0" target="4,1,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="4,2,1,0" target="5,0,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="4,3,0,0" target="2,4,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="4,3,0,0" target="3,3,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="4,3,0,0" target="4,1,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="4,3,0,0" target="4,2,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="4,3,0,0" target="5,1,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="5,2,0,0" target="3,3,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="5,2,0,0" target="4,2,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="5,2,0,0" target="5,0,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="5,2,0,0" target="5,1,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="5,2,0,0" target="6,0,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="5,1,1,0" target="3,2,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="5,1,1,0" target="4,1,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="6,1,0,0" target="4,2,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="6,1,0,0" target="5,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="6,0,1,0" target="4,1,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="6,0,1,0" target="5,0,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="7,0,0,0" target="5,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="7,0,0,0" target="6,0,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="0,6,0,0" target="0,4,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="0,6,0,0" target="0,5,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="0,6,0,0" target="1,4,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="1,5,0,0" target="1,3,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="1,5,0,0" target="1,4,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="1,5,0,0" target="2,3,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="2,3,1,0" target="0,4,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="2,3,1,0" target="1,3,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="2,3,1,0" target="2,1,2,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="2,3,1,0" target="2,2,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="2,3,1,0" target="3,1,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="2,4,0,0" target="0,5,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="2,4,0,0" target="1,4,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="2,4,0,0" target="2,2,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="2,4,0,0" target="2,3,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="2,4,0,0" target="3,2,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="3,3,0,0" target="1,4,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="3,3,0,0" target="2,3,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="3,3,0,0" target="3,1,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="3,3,0,0" target="3,2,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="3,3,0,0" target="4,1,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="3,2,1,0" target="1,3,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="3,2,1,0" target="2,2,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="3,2,1,0" target="3,0,2,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="3,2,1,0" target="3,1,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="3,2,1,0" target="4,0,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="4,2,0,0" target="2,3,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="4,2,0,0" target="3,2,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="4,2,0,0" target="4,0,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="4,2,0,0" target="4,1,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="4,2,0,0" target="5,0,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="4,0,2,0" target="2,1,2,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="4,0,2,0" target="3,0,2,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="4,0,2,0" target="4,0,0,1">
+  <data key="d10">combine_T3</data>
+  <data key="d11">upgrade_to_T4</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T3
+upgrade_to_T4
+1/5</data>
+</edge>
+<edge source="4,0,2,0" target="4,0,1,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">same_to_T3</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T3
+same_to_T3
+1/2</data>
+</edge>
+<edge source="4,0,2,0" target="4,1,0,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">downgrade_to_T2</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T3
+downgrade_to_T2
+3/10</data>
+</edge>
+<edge source="4,1,1,0" target="2,2,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="4,1,1,0" target="3,1,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="5,0,1,0" target="3,1,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="5,0,1,0" target="4,0,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="5,1,0,0" target="3,2,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="5,1,0,0" target="4,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="6,0,0,0" target="4,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="6,0,0,0" target="5,0,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="0,4,1,0" target="0,2,2,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="0,4,1,0" target="0,3,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="0,4,1,0" target="1,2,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="0,5,0,0" target="0,3,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="0,5,0,0" target="0,4,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="0,5,0,0" target="1,3,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="1,4,0,0" target="1,2,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="1,4,0,0" target="1,3,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="1,4,0,0" target="2,2,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="1,3,1,0" target="1,1,2,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="1,3,1,0" target="1,2,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="1,3,1,0" target="2,1,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="2,3,0,0" target="0,4,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="2,3,0,0" target="1,3,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="2,3,0,0" target="2,1,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="2,3,0,0" target="2,2,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="2,3,0,0" target="3,1,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="2,1,2,0" target="0,2,2,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="2,1,2,0" target="1,1,2,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="2,1,2,0" target="2,1,0,1">
+  <data key="d10">combine_T3</data>
+  <data key="d11">upgrade_to_T4</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T3
+upgrade_to_T4
+1/5</data>
+</edge>
+<edge source="2,1,2,0" target="2,1,1,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">same_to_T3</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T3
+same_to_T3
+1/2</data>
+</edge>
+<edge source="2,1,2,0" target="2,2,0,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">downgrade_to_T2</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T3
+downgrade_to_T2
+3/10</data>
+</edge>
+<edge source="2,2,1,0" target="0,3,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="2,2,1,0" target="1,2,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="2,2,1,0" target="2,0,2,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="2,2,1,0" target="2,1,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="2,2,1,0" target="3,0,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="3,1,1,0" target="1,2,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="3,1,1,0" target="2,1,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="3,2,0,0" target="1,3,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="3,2,0,0" target="2,2,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="3,2,0,0" target="3,0,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="3,2,0,0" target="3,1,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="3,2,0,0" target="4,0,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="4,1,0,0" target="2,2,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="4,1,0,0" target="3,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="3,0,2,0" target="1,1,2,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="3,0,2,0" target="2,0,2,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="3,0,2,0" target="3,0,0,1">
+  <data key="d10">combine_T3</data>
+  <data key="d11">upgrade_to_T4</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T3
+upgrade_to_T4
+1/5</data>
+</edge>
+<edge source="3,0,2,0" target="3,0,1,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">same_to_T3</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T3
+same_to_T3
+1/2</data>
+</edge>
+<edge source="3,0,2,0" target="3,1,0,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">downgrade_to_T2</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T3
+downgrade_to_T2
+3/10</data>
+</edge>
+<edge source="4,0,1,0" target="2,1,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="4,0,1,0" target="3,0,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="5,0,0,0" target="3,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="5,0,0,0" target="4,0,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="0,2,2,0" target="0,0,3,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="0,2,2,0" target="0,1,2,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="0,2,2,0" target="1,0,2,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="0,2,2,0" target="0,2,0,1">
+  <data key="d10">combine_T3</data>
+  <data key="d11">upgrade_to_T4</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T3
+upgrade_to_T4
+1/5</data>
+</edge>
+<edge source="0,2,2,0" target="0,2,1,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">same_to_T3</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T3
+same_to_T3
+1/2</data>
+</edge>
+<edge source="0,2,2,0" target="0,3,0,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">downgrade_to_T2</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T3
+downgrade_to_T2
+3/10</data>
+</edge>
+<edge source="0,3,1,0" target="0,1,2,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="0,3,1,0" target="0,2,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="0,3,1,0" target="1,1,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="1,2,1,0" target="1,0,2,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="1,2,1,0" target="1,1,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="1,2,1,0" target="2,0,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="0,4,0,0" target="0,2,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="0,4,0,0" target="0,3,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="0,4,0,0" target="1,2,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="1,3,0,0" target="1,1,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="1,3,0,0" target="1,2,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="1,3,0,0" target="2,1,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="2,2,0,0" target="0,3,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="2,2,0,0" target="1,2,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="2,2,0,0" target="2,0,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="2,2,0,0" target="2,1,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="2,2,0,0" target="3,0,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="1,1,2,0" target="1,1,0,1">
+  <data key="d10">combine_T3</data>
+  <data key="d11">upgrade_to_T4</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T3
+upgrade_to_T4
+1/5</data>
+</edge>
+<edge source="1,1,2,0" target="1,1,1,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">same_to_T3</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T3
+same_to_T3
+1/2</data>
+</edge>
+<edge source="1,1,2,0" target="1,2,0,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">downgrade_to_T2</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T3
+downgrade_to_T2
+3/10</data>
+</edge>
+<edge source="2,1,1,0" target="0,2,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="2,1,1,0" target="1,1,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="3,1,0,0" target="1,2,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="3,1,0,0" target="2,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="2,0,2,0" target="0,1,2,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="2,0,2,0" target="1,0,2,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="2,0,2,0" target="2,0,0,1">
+  <data key="d10">combine_T3</data>
+  <data key="d11">upgrade_to_T4</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T3
+upgrade_to_T4
+1/5</data>
+</edge>
+<edge source="2,0,2,0" target="2,0,1,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">same_to_T3</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T3
+same_to_T3
+1/2</data>
+</edge>
+<edge source="2,0,2,0" target="2,1,0,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">downgrade_to_T2</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T3
+downgrade_to_T2
+3/10</data>
+</edge>
+<edge source="3,0,1,0" target="1,1,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="3,0,1,0" target="2,0,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="4,0,0,0" target="2,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="4,0,0,0" target="3,0,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="0,0,3,0" target="0,0,1,1">
+  <data key="d10">combine_T3</data>
+  <data key="d11">upgrade_to_T4</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T3
+upgrade_to_T4
+1/5</data>
+</edge>
+<edge source="0,0,3,0" target="0,0,2,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">same_to_T3</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T3
+same_to_T3
+1/2</data>
+</edge>
+<edge source="0,0,3,0" target="0,1,1,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">downgrade_to_T2</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T3
+downgrade_to_T2
+3/10</data>
+</edge>
+<edge source="0,1,2,0" target="0,1,0,1">
+  <data key="d10">combine_T3</data>
+  <data key="d11">upgrade_to_T4</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T3
+upgrade_to_T4
+1/5</data>
+</edge>
+<edge source="0,1,2,0" target="0,1,1,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">same_to_T3</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T3
+same_to_T3
+1/2</data>
+</edge>
+<edge source="0,1,2,0" target="0,2,0,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">downgrade_to_T2</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T3
+downgrade_to_T2
+3/10</data>
+</edge>
+<edge source="1,0,2,0" target="1,0,0,1">
+  <data key="d10">combine_T3</data>
+  <data key="d11">upgrade_to_T4</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T3
+upgrade_to_T4
+1/5</data>
+</edge>
+<edge source="1,0,2,0" target="1,0,1,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">same_to_T3</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T3
+same_to_T3
+1/2</data>
+</edge>
+<edge source="1,0,2,0" target="1,1,0,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">downgrade_to_T2</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T3
+downgrade_to_T2
+3/10</data>
+</edge>
+<edge source="0,2,1,0" target="0,0,2,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="0,2,1,0" target="0,1,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="0,2,1,0" target="1,0,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="0,3,0,0" target="0,1,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="0,3,0,0" target="0,2,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="0,3,0,0" target="1,1,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="2,0,1,0" target="0,1,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="2,0,1,0" target="1,0,1,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="1,2,0,0" target="1,0,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="1,2,0,0" target="1,1,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="1,2,0,0" target="2,0,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="2,1,0,0" target="0,2,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="2,1,0,0" target="1,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="3,0,0,0" target="1,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="3,0,0,0" target="2,0,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+<edge source="0,0,2,0" target="0,0,0,1">
+  <data key="d10">combine_T3</data>
+  <data key="d11">upgrade_to_T4</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T3
+upgrade_to_T4
+1/5</data>
+</edge>
+<edge source="0,0,2,0" target="0,0,1,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">same_to_T3</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T3
+same_to_T3
+1/2</data>
+</edge>
+<edge source="0,0,2,0" target="0,1,0,0">
+  <data key="d10">combine_T3</data>
+  <data key="d11">downgrade_to_T2</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T3
+downgrade_to_T2
+3/10</data>
+</edge>
+<edge source="0,2,0,0" target="0,0,1,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">upgrade_to_T3</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T2
+upgrade_to_T3
+1/5</data>
+</edge>
+<edge source="0,2,0,0" target="0,1,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">same_to_T2</data>
+  <data key="d12">1/2</data>
+  <data key="d13">0.5</data>
+  <data key="d14">combine_T2
+same_to_T2
+1/2</data>
+</edge>
+<edge source="0,2,0,0" target="1,0,0,0">
+  <data key="d10">combine_T2</data>
+  <data key="d11">downgrade_to_T1</data>
+  <data key="d12">3/10</data>
+  <data key="d13">0.3</data>
+  <data key="d14">combine_T2
+downgrade_to_T1
+3/10</data>
+</edge>
+<edge source="2,0,0,0" target="0,1,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">upgrade_to_T2</data>
+  <data key="d12">1/5</data>
+  <data key="d13">0.2</data>
+  <data key="d14">combine_T1
+upgrade_to_T2
+1/5</data>
+</edge>
+<edge source="2,0,0,0" target="1,0,0,0">
+  <data key="d10">combine_T1</data>
+  <data key="d11">same_or_downgrade_to_T1</data>
+  <data key="d12">4/5</data>
+  <data key="d13">0.8</data>
+  <data key="d14">combine_T1
+same_or_downgrade_to_T1
+4/5</data>
+</edge>
+</graph></graphml>

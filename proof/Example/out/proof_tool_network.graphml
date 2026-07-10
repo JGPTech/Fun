@@ -1,0 +1,337 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="label" attr.type="string"/>
+<key id="d5" for="edge" attr.name="relation" attr.type="string"/>
+<key id="d4" for="node" attr.name="color" attr.type="string"/>
+<key id="d3" for="node" attr.name="description" attr.type="string"/>
+<key id="d2" for="node" attr.name="layer" attr.type="long"/>
+<key id="d1" for="node" attr.name="kind" attr.type="string"/>
+<key id="d0" for="node" attr.name="label" attr.type="string"/>
+<graph edgedefault="directed"><node id="Algorithm Correctness Claim">
+  <data key="d0">Algorithm Correctness Claim</data>
+  <data key="d1">claim</data>
+  <data key="d2">0</data>
+  <data key="d3">For every finite state s, P_impl(s)=V_opt(s).</data>
+  <data key="d4">#f1c40f</data>
+</node>
+<node id="State-Transition Artifact">
+  <data key="d0">State-Transition Artifact</data>
+  <data key="d1">artifact</data>
+  <data key="d2">0</data>
+  <data key="d3">Horse-state network visual.</data>
+  <data key="d4">#95a5a6</data>
+</node>
+<node id="Proof-Tool Artifact">
+  <data key="d0">Proof-Tool Artifact</data>
+  <data key="d1">artifact</data>
+  <data key="d2">0</data>
+  <data key="d3">Proof-routing network visual.</data>
+  <data key="d4">#95a5a6</data>
+</node>
+<node id="Universal Claim">
+  <data key="d0">Universal Claim</data>
+  <data key="d1">claim</data>
+  <data key="d2">1</data>
+  <data key="d3">Theorem quantified over all states.</data>
+  <data key="d4">#f1c40f</data>
+</node>
+<node id="Finite State Process">
+  <data key="d0">Finite State Process</data>
+  <data key="d1">material</data>
+  <data key="d2">1</data>
+  <data key="d3">Finite-horizon state process.</data>
+  <data key="d4">#4da3ff</data>
+</node>
+<node id="Decision Process">
+  <data key="d0">Decision Process</data>
+  <data key="d1">material</data>
+  <data key="d2">1</data>
+  <data key="d3">Action choice at each active state.</data>
+  <data key="d4">#4da3ff</data>
+</node>
+<node id="Resource Bound">
+  <data key="d0">Resource Bound</data>
+  <data key="d1">material</data>
+  <data key="d2">1</data>
+  <data key="d3">Tier-weight potential and minimal 8-horse theorem.</data>
+  <data key="d4">#4da3ff</data>
+</node>
+<node id="Scaling Analysis">
+  <data key="d0">Scaling Analysis</data>
+  <data key="d1">material</data>
+  <data key="d2">1</data>
+  <data key="d3">Finite-window empirical fit.</data>
+  <data key="d4">#4da3ff</data>
+</node>
+<node id="Arbitrary State">
+  <data key="d0">Arbitrary State</data>
+  <data key="d1">tool</data>
+  <data key="d2">2</data>
+  <data key="d3">Proof starts from an arbitrary state s.</data>
+  <data key="d4">#8e44ad</data>
+</node>
+<node id="Total Horse Rank">
+  <data key="d0">Total Horse Rank</data>
+  <data key="d1">lemma</data>
+  <data key="d2">2</data>
+  <data key="d3">rho(s)=t1+t2+t3+t4.</data>
+  <data key="d4">#1abc9c</data>
+</node>
+<node id="Tier-Weight Potential">
+  <data key="d0">Tier-Weight Potential</data>
+  <data key="d1">lemma</data>
+  <data key="d2">2</data>
+  <data key="d3">omega(s)=t1+2t2+4t3+8t4.</data>
+  <data key="d4">#1abc9c</data>
+</node>
+<node id="Optimal Substructure">
+  <data key="d0">Optimal Substructure</data>
+  <data key="d1">lemma</data>
+  <data key="d2">2</data>
+  <data key="d3">Best first action + optimal continuation.</data>
+  <data key="d4">#1abc9c</data>
+</node>
+<node id="Probability Boundedness">
+  <data key="d0">Probability Boundedness</data>
+  <data key="d1">warning</data>
+  <data key="d2">2</data>
+  <data key="d3">Probabilities satisfy 0 &lt;= P(X) &lt;= 1.</data>
+  <data key="d4">#e74c3c</data>
+</node>
+<node id="Strong Induction">
+  <data key="d0">Strong Induction</data>
+  <data key="d1">tool</data>
+  <data key="d2">3</data>
+  <data key="d3">Induction on total horse count.</data>
+  <data key="d4">#8e44ad</data>
+</node>
+<node id="Bellman Recurrence">
+  <data key="d0">Bellman Recurrence</data>
+  <data key="d1">tool</data>
+  <data key="d2">3</data>
+  <data key="d3">V(s)=max_a sum K(s'|s,a)V(s').</data>
+  <data key="d4">#8e44ad</data>
+</node>
+<node id="Potential Function Argument">
+  <data key="d0">Potential Function Argument</data>
+  <data key="d1">tool</data>
+  <data key="d2">3</data>
+  <data key="d3">Use omega(s) to prove minimal-resource bounds.</data>
+  <data key="d4">#8e44ad</data>
+</node>
+<node id="Empirical-Only Warning">
+  <data key="d0">Empirical-Only Warning</data>
+  <data key="d1">warning</data>
+  <data key="d2">3</data>
+  <data key="d3">Power-law fit is finite-window, not global.</data>
+  <data key="d4">#e74c3c</data>
+</node>
+<node id="Termination Lemma">
+  <data key="d0">Termination Lemma</data>
+  <data key="d1">lemma</data>
+  <data key="d2">4</data>
+  <data key="d3">Every legal move decreases rank by exactly one.</data>
+  <data key="d4">#1abc9c</data>
+</node>
+<node id="No Directed Cycles">
+  <data key="d0">No Directed Cycles</data>
+  <data key="d1">lemma</data>
+  <data key="d2">4</data>
+  <data key="d3">State-transition DAG under rank decrease.</data>
+  <data key="d4">#1abc9c</data>
+</node>
+<node id="Recursive Correctness Theorem">
+  <data key="d0">Recursive Correctness Theorem</data>
+  <data key="d1">lemma</data>
+  <data key="d2">4</data>
+  <data key="d3">Recursive implementation equals optimal probability.</data>
+  <data key="d4">#1abc9c</data>
+</node>
+<node id="Minimal 8-Horses Lemma">
+  <data key="d0">Minimal 8-Horses Lemma</data>
+  <data key="d1">lemma</data>
+  <data key="d2">4</data>
+  <data key="d3">f(X)=0 for X&lt;8 and f(8)=(1/5)^7.</data>
+  <data key="d4">#1abc9c</data>
+</node>
+<node id="Finite-Window Scaling Note">
+  <data key="d0">Finite-Window Scaling Note</data>
+  <data key="d1">warning</data>
+  <data key="d2">4</data>
+  <data key="d3">Positive power-law cannot hold globally.</data>
+  <data key="d4">#e74c3c</data>
+</node>
+<node id="Closure Check">
+  <data key="d0">Closure Check</data>
+  <data key="d1">check</data>
+  <data key="d2">5</data>
+  <data key="d3">Exact claim proved; assumptions preserved.</data>
+  <data key="d4">#ecf0f1</data>
+</node>
+<node id="Terminal Base Cases">
+  <data key="d0">Terminal Base Cases</data>
+  <data key="d1">check</data>
+  <data key="d2">5</data>
+  <data key="d3">Success =&gt; 1, terminal failure =&gt; 0.</data>
+  <data key="d4">#ecf0f1</data>
+</node>
+<node id="Empirical/Theorem Separation">
+  <data key="d0">Empirical/Theorem Separation</data>
+  <data key="d1">check</data>
+  <data key="d2">5</data>
+  <data key="d3">Observed scaling kept separate from theorem.</data>
+  <data key="d4">#ecf0f1</data>
+</node>
+<node id="LaTeX Proof">
+  <data key="d0">LaTeX Proof</data>
+  <data key="d1">artifact</data>
+  <data key="d2">6</data>
+  <data key="d3">Formal proof document.</data>
+  <data key="d4">#95a5a6</data>
+</node>
+<node id="horse_probability_lab.py">
+  <data key="d0">horse_probability_lab.py</data>
+  <data key="d1">artifact</data>
+  <data key="d2">6</data>
+  <data key="d3">Exact verifier and Monte Carlo lab.</data>
+  <data key="d4">#95a5a6</data>
+</node>
+<node id="horse_networks.py">
+  <data key="d0">horse_networks.py</data>
+  <data key="d1">artifact</data>
+  <data key="d2">6</data>
+  <data key="d3">This visual network builder.</data>
+  <data key="d4">#95a5a6</data>
+</node>
+<edge source="Algorithm Correctness Claim" target="Universal Claim">
+  <data key="d5">claim_shape</data>
+  <data key="d6">claim_shape</data>
+</edge>
+<edge source="Algorithm Correctness Claim" target="Finite State Process">
+  <data key="d5">material</data>
+  <data key="d6">material</data>
+</edge>
+<edge source="Algorithm Correctness Claim" target="Decision Process">
+  <data key="d5">material</data>
+  <data key="d6">material</data>
+</edge>
+<edge source="Algorithm Correctness Claim" target="Resource Bound">
+  <data key="d5">supporting_lemma</data>
+  <data key="d6">supporting_lemma</data>
+</edge>
+<edge source="Algorithm Correctness Claim" target="Scaling Analysis">
+  <data key="d5">audit</data>
+  <data key="d6">audit</data>
+</edge>
+<edge source="State-Transition Artifact" target="horse_networks.py">
+  <data key="d5">implemented_by</data>
+  <data key="d6">implemented_by</data>
+</edge>
+<edge source="Proof-Tool Artifact" target="horse_networks.py">
+  <data key="d5">implemented_by</data>
+  <data key="d6">implemented_by</data>
+</edge>
+<edge source="Universal Claim" target="Arbitrary State">
+  <data key="d5">selects</data>
+  <data key="d6">selects</data>
+</edge>
+<edge source="Finite State Process" target="Total Horse Rank">
+  <data key="d5">reveals</data>
+  <data key="d6">reveals</data>
+</edge>
+<edge source="Finite State Process" target="Termination Lemma">
+  <data key="d5">supports</data>
+  <data key="d6">supports</data>
+</edge>
+<edge source="Decision Process" target="Optimal Substructure">
+  <data key="d5">reveals</data>
+  <data key="d6">reveals</data>
+</edge>
+<edge source="Resource Bound" target="Tier-Weight Potential">
+  <data key="d5">reveals</data>
+  <data key="d6">reveals</data>
+</edge>
+<edge source="Scaling Analysis" target="Probability Boundedness">
+  <data key="d5">audit</data>
+  <data key="d6">audit</data>
+</edge>
+<edge source="Arbitrary State" target="Strong Induction">
+  <data key="d5">tool</data>
+  <data key="d6">tool</data>
+</edge>
+<edge source="Total Horse Rank" target="Strong Induction">
+  <data key="d5">tool</data>
+  <data key="d6">tool</data>
+</edge>
+<edge source="Total Horse Rank" target="Termination Lemma">
+  <data key="d5">supports</data>
+  <data key="d6">supports</data>
+</edge>
+<edge source="Tier-Weight Potential" target="Potential Function Argument">
+  <data key="d5">tool</data>
+  <data key="d6">tool</data>
+</edge>
+<edge source="Optimal Substructure" target="Bellman Recurrence">
+  <data key="d5">tool</data>
+  <data key="d6">tool</data>
+</edge>
+<edge source="Probability Boundedness" target="Empirical-Only Warning">
+  <data key="d5">forces</data>
+  <data key="d6">forces</data>
+</edge>
+<edge source="Strong Induction" target="Recursive Correctness Theorem">
+  <data key="d5">proves</data>
+  <data key="d6">proves</data>
+</edge>
+<edge source="Bellman Recurrence" target="Recursive Correctness Theorem">
+  <data key="d5">proves</data>
+  <data key="d6">proves</data>
+</edge>
+<edge source="Potential Function Argument" target="Minimal 8-Horses Lemma">
+  <data key="d5">proves</data>
+  <data key="d6">proves</data>
+</edge>
+<edge source="Empirical-Only Warning" target="Finite-Window Scaling Note">
+  <data key="d5">qualifies</data>
+  <data key="d6">qualifies</data>
+</edge>
+<edge source="Termination Lemma" target="No Directed Cycles">
+  <data key="d5">implies</data>
+  <data key="d6">implies</data>
+</edge>
+<edge source="Recursive Correctness Theorem" target="Closure Check">
+  <data key="d5">passes_through</data>
+  <data key="d6">passes_through</data>
+</edge>
+<edge source="Minimal 8-Horses Lemma" target="Closure Check">
+  <data key="d5">passes_through</data>
+  <data key="d6">passes_through</data>
+</edge>
+<edge source="Finite-Window Scaling Note" target="Empirical/Theorem Separation">
+  <data key="d5">requires</data>
+  <data key="d6">requires</data>
+</edge>
+<edge source="Closure Check" target="LaTeX Proof">
+  <data key="d5">exports_to</data>
+  <data key="d6">exports_to</data>
+</edge>
+<edge source="Closure Check" target="horse_probability_lab.py">
+  <data key="d5">verified_by</data>
+  <data key="d6">verified_by</data>
+</edge>
+<edge source="Terminal Base Cases" target="Recursive Correctness Theorem">
+  <data key="d5">required_for</data>
+  <data key="d6">required_for</data>
+</edge>
+<edge source="Empirical/Theorem Separation" target="LaTeX Proof">
+  <data key="d5">exports_to</data>
+  <data key="d6">exports_to</data>
+</edge>
+<edge source="horse_probability_lab.py" target="LaTeX Proof">
+  <data key="d5">supports</data>
+  <data key="d6">supports</data>
+</edge>
+<edge source="horse_networks.py" target="LaTeX Proof">
+  <data key="d5">supports</data>
+  <data key="d6">supports</data>
+</edge>
+</graph></graphml>

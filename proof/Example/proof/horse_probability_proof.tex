@@ -1,0 +1,682 @@
+
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{microtype}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    urlcolor=blue!60!black,
+    citecolor=blue!60!black
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\State}{\mathcal{X}}
+\newcommand{\Success}{\mathcal{S}}
+\newcommand{\Failure}{\mathcal{F}}
+\newcommand{\Active}{\mathcal{A}}
+\newcommand{\Actions}{\mathcal{U}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\rank}{\rho}
+\newcommand{\weight}{\omega}
+\newcommand{\impl}{\mathrm{impl}}
+\newcommand{\opt}{\mathrm{opt}}
+
+\title{
+    \vspace{-1.5em}
+    Optimal Horse-Combination Probability\\
+    \large A Bellman Correctness Proof for a Recursive Tier-Upgrade Calculator
+}
+\author{Prepared proof draft}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This document formalizes the recursive horse-combination probability calculator as a finite Markov decision process and proves the correctness of its core value recursion.  A state records the number of horses in tiers \(1,2,3,4\).  The objective is to maximize the probability of eventually reaching a state containing at least one tier-4 horse.  The main result shows that the recursive function
+\[
+    P(s)=\max_{a\in \Actions(s)} \sum_{s'} K(s' \mid s,a)P(s')
+\]
+with terminal boundary values \(P(s)=1\) on success states and \(P(s)=0\) on terminal failure states computes the optimal success probability.
+
+The proof uses a well-founded rank,
+\[
+    \rank(s)=t_1+t_2+t_3+t_4,
+\]
+which strictly decreases by one after every legal nonterminal combination.  This makes the state-transition graph acyclic and allows a strong-induction proof of Bellman correctness.  We also prove the minimal-resource lemma: fewer than eight tier-1 horses cannot reach tier 4, and exactly eight tier-1 horses succeed with probability \((1/5)^7\).  Finally, we record a careful interpretation of empirical finite-window scaling: a fitted law such as \(P(X)\propto X^\alpha\) may describe a finite range, but no positive power law can hold globally because probabilities are bounded by \(1\).
+\end{abstract}
+
+\tableofcontents
+
+\section{Purpose}
+
+The original implementation computes the probability of obtaining at least one tier-4 horse by recursively evaluating all legal horse-combination actions and selecting the action with maximal expected success probability.  This document supplies the mathematical proof spine behind that implementation.
+
+There are three layers:
+
+\begin{enumerate}[label=\textbf{Layer \arabic*.}]
+    \item \textbf{Formal model.}  Define states, legal actions, transition probabilities, terminal success, and terminal failure.
+    \item \textbf{Correctness theorem.}  Prove that the recursive value function equals the optimal probability of eventual success.
+    \item \textbf{Auxiliary proof notes.}  Prove the eight-horse base case and distinguish exact theorem claims from empirical finite-range scaling observations.
+\end{enumerate}
+
+The central point is that the recursion is not justified merely by memoization.  Memoization is an implementation optimization.  The mathematical reason the recursion is well-founded is that every legal combination reduces the total horse count by exactly one.
+
+\section{State Space}
+
+\begin{definition}[Horse state]
+A horse state is a vector
+\[
+    s=(t_1,t_2,t_3,t_4)\in \N^4,
+\]
+where \(t_i\) is the number of horses in tier \(i\).  Tier \(4\) is the goal tier.
+\end{definition}
+
+Let
+\[
+    e_1=(1,0,0,0),\quad
+    e_2=(0,1,0,0),\quad
+    e_3=(0,0,1,0),\quad
+    e_4=(0,0,0,1)
+\]
+denote the standard basis vectors.
+
+\begin{definition}[Success states]
+The success set is
+\[
+    \Success=\{s=(t_1,t_2,t_3,t_4)\in \N^4:t_4\ge 1\}.
+\]
+When \(s\in\Success\), the process has already achieved the objective.
+\end{definition}
+
+\begin{definition}[Legal action]
+For \(i\in\{1,2,3\}\), action \(a_i\) means ``combine two tier-\(i\) horses.''  It is legal at state \(s\) exactly when
+\[
+    t_i\ge 2.
+\]
+The legal action set is
+\[
+    \Actions(s)=\{a_i:i\in\{1,2,3\},\ t_i\ge 2\}.
+\]
+\end{definition}
+
+\begin{definition}[Failure states]
+The terminal failure set is
+\[
+    \Failure=\{s\in \N^4:t_4=0,\ \Actions(s)=\varnothing\}.
+\]
+Equivalently,
+\[
+    \Failure=\{s=(t_1,t_2,t_3,0):t_1,t_2,t_3\le 1\}.
+\]
+\end{definition}
+
+\begin{definition}[Active states]
+The active set is
+\[
+    \Active=\N^4\setminus(\Success\cup\Failure).
+\]
+These are precisely the states for which the process has not succeeded and at least one legal combination remains.
+\end{definition}
+
+\section{Transition Rules}
+
+The transition probabilities are
+\[
+    p_+ = \frac15,\qquad
+    p_0 = \frac12,\qquad
+    p_- = \frac3{10}.
+\]
+Here \(p_+\) is the probability of upgrading to the next tier, \(p_0\) is the probability of remaining at the same tier, and \(p_-\) is the probability of downgrading by one tier.  For tier \(1\), downgrade is absorbed into the tier-\(1\) outcome because there is no tier below tier \(1\).
+
+\subsection{Combining two tier-1 horses}
+
+If \(a_1\) is legal at \(s\), then
+\[
+    s \longrightarrow s-2e_1+e_2
+    \quad\text{with probability}\quad \frac15,
+\]
+and
+\[
+    s \longrightarrow s-e_1
+    \quad\text{with probability}\quad \frac45.
+\]
+The second transition represents the combined same-tier/downgrade case: two tier-1 horses are consumed and one tier-1 horse remains.
+
+\subsection{Combining two tier-2 horses}
+
+If \(a_2\) is legal at \(s\), then
+\[
+    s \longrightarrow s-2e_2+e_3
+    \quad\text{with probability}\quad \frac15,
+\]
+\[
+    s \longrightarrow s-e_2
+    \quad\text{with probability}\quad \frac12,
+\]
+and
+\[
+    s \longrightarrow s+e_1-2e_2
+    \quad\text{with probability}\quad \frac3{10}.
+\]
+
+\subsection{Combining two tier-3 horses}
+
+If \(a_3\) is legal at \(s\), then
+\[
+    s \longrightarrow s-2e_3+e_4
+    \quad\text{with probability}\quad \frac15,
+\]
+\[
+    s \longrightarrow s-e_3
+    \quad\text{with probability}\quad \frac12,
+\]
+and
+\[
+    s \longrightarrow s+e_2-2e_3
+    \quad\text{with probability}\quad \frac3{10}.
+\]
+
+The first tier-3 outcome is a success transition, since it creates a tier-4 horse.
+
+\section{Policies and Optimal Value}
+
+\begin{definition}[Policy]
+A policy \(\pi\) is a rule that assigns a legal action to every active state encountered by the process.  Since each legal move decreases total horse count, the process has finite horizon from every finite initial state.
+\end{definition}
+
+\begin{definition}[Optimal success probability]
+For any state \(s\), let
+\[
+    V^\opt(s)
+\]
+denote the supremum, over all admissible policies \(\pi\), of the probability of eventually reaching \(\Success\) before reaching \(\Failure\), starting from \(s\).
+\end{definition}
+
+Since the action set is finite and every play terminates in finitely many moves, the supremum is attained.  Thus \(V^\opt\) is a maximum value rather than only a supremal value.
+
+\section{Well-Founded Rank}
+
+\begin{definition}[Total-horse rank]
+Define
+\[
+    \rank(s)=t_1+t_2+t_3+t_4.
+\]
+\end{definition}
+
+\begin{lemma}[Every legal move decreases rank]
+Let \(s\in\Active\), and let \(a\in\Actions(s)\).  Every possible successor state \(s'\) produced by action \(a\) satisfies
+\[
+    \rank(s')=\rank(s)-1.
+\]
+\end{lemma}
+
+\begin{proof}
+Every legal action combines two horses and returns exactly one horse.  Thus the total number of horses decreases by one.  Checking the transition formulas explicitly gives the same result.
+
+For \(a_1\),
+\[
+    \rank(s-2e_1+e_2)=\rank(s)-1
+\]
+and
+\[
+    \rank(s-e_1)=\rank(s)-1.
+\]
+
+For \(a_2\),
+\[
+    \rank(s-2e_2+e_3)=\rank(s)-1,
+\]
+\[
+    \rank(s-e_2)=\rank(s)-1,
+\]
+and
+\[
+    \rank(s+e_1-2e_2)=\rank(s)-1.
+\]
+
+For \(a_3\),
+\[
+    \rank(s-2e_3+e_4)=\rank(s)-1,
+\]
+\[
+    \rank(s-e_3)=\rank(s)-1,
+\]
+and
+\[
+    \rank(s+e_2-2e_3)=\rank(s)-1.
+\]
+
+Therefore every legal transition decreases rank by exactly one.
+\end{proof}
+
+\begin{corollary}[No transition cycles]
+The directed state-transition graph contains no directed cycle among nonterminal states.
+\end{corollary}
+
+\begin{proof}
+Along every nonterminal transition, \(\rank\) strictly decreases.  A directed cycle would require returning to the original rank, which is impossible under strict decrease.
+\end{proof}
+
+\begin{corollary}[Finite termination]
+Starting from any finite state \(s\), every trajectory reaches either \(\Success\) or \(\Failure\) after at most \(\rank(s)\) legal combinations.
+\end{corollary}
+
+\begin{proof}
+The rank is a nonnegative integer and decreases by one after every legal nonterminal move.  Therefore the process cannot continue for more than \(\rank(s)\) legal moves.  It must either reach a success state earlier or eventually have no legal action remaining, which is a failure state if no tier-4 horse has been produced.
+\end{proof}
+
+\section{Bellman Recurrence}
+
+\begin{definition}[Bellman operator]
+For any function \(W:\N^4\to[0,1]\), define the action-value operator
+\[
+    Q_W(s,a)=\sum_{s'}K(s'\mid s,a)W(s'),
+\]
+where \(K(s'\mid s,a)\) is the transition kernel described above.  For active states, define
+\[
+    (TW)(s)=\max_{a\in\Actions(s)}Q_W(s,a).
+\]
+\end{definition}
+
+\begin{lemma}[Bellman optimality equation]
+The optimal value function satisfies
+\[
+    V^\opt(s)=1 \quad\text{for }s\in\Success,
+\]
+\[
+    V^\opt(s)=0 \quad\text{for }s\in\Failure,
+\]
+and
+\[
+    V^\opt(s)
+    =
+    \max_{a\in\Actions(s)}
+    \sum_{s'}K(s'\mid s,a)V^\opt(s')
+    \quad\text{for }s\in\Active.
+\]
+\end{lemma}
+
+\begin{proof}
+If \(s\in\Success\), the objective has already been achieved, so the success probability is \(1\).  If \(s\in\Failure\), no tier-4 horse exists and no legal move remains, so the success probability is \(0\).
+
+Now let \(s\in\Active\).  Any admissible policy must choose some first action \(a\in\Actions(s)\).  Conditional on the successor state \(s'\), the remaining success probability cannot exceed \(V^\opt(s')\).  Therefore the success probability of any policy whose first action is \(a\) is at most
+\[
+    \sum_{s'}K(s'\mid s,a)V^\opt(s').
+\]
+Since the first action must be legal, every policy has success probability at most
+\[
+    \max_{a\in\Actions(s)}
+    \sum_{s'}K(s'\mid s,a)V^\opt(s').
+\]
+
+Conversely, choose an action \(a^*\in\Actions(s)\) attaining the maximum.  Such an action exists because \(\Actions(s)\) is finite.  For each successor state \(s'\), follow an optimal policy from \(s'\).  This patched policy achieves
+\[
+    \sum_{s'}K(s'\mid s,a^*)V^\opt(s')
+    =
+    \max_{a\in\Actions(s)}
+    \sum_{s'}K(s'\mid s,a)V^\opt(s').
+\]
+Thus equality holds.
+\end{proof}
+
+\section{Recursive Implementation as a Mathematical Function}
+
+Define \(P^\impl:\N^4\to[0,1]\) recursively as follows:
+\[
+    P^\impl(s)=1\quad\text{if }s\in\Success,
+\]
+\[
+    P^\impl(s)=0\quad\text{if }s\in\Failure,
+\]
+and, for \(s\in\Active\),
+\[
+    P^\impl(s)=
+    \max_{a\in\Actions(s)}
+    \sum_{s'}K(s'\mid s,a)P^\impl(s').
+\]
+
+This is the exact mathematical version of the recursive algorithm.  The implementation may store decimal constants as floating-point values, but the proof concerns the ideal exact recurrence with probabilities \(1/5\), \(1/2\), and \(3/10\).  The planned verifier script can compute these values exactly using rational arithmetic.
+
+\begin{theorem}[Recursive correctness]
+For every state \(s\in\N^4\),
+\[
+    P^\impl(s)=V^\opt(s).
+\]
+That is, the recursive value returned by the algorithm equals the optimal probability of eventually obtaining at least one tier-4 horse.
+\end{theorem}
+
+\begin{proof}
+We prove the result by strong induction on the rank
+\[
+    \rank(s)=t_1+t_2+t_3+t_4.
+\]
+
+\textbf{Base cases.}
+If \(s\in\Success\), then by definition
+\[
+    P^\impl(s)=1=V^\opt(s).
+\]
+If \(s\in\Failure\), then by definition
+\[
+    P^\impl(s)=0=V^\opt(s).
+\]
+
+These handle all terminal states.  They also include all states of sufficiently small rank for which no legal move exists.
+
+\textbf{Inductive hypothesis.}
+Assume that for some \(n\ge0\), the equality
+\[
+    P^\impl(r)=V^\opt(r)
+\]
+holds for every state \(r\) with
+\[
+    \rank(r)<n.
+\]
+
+\textbf{Inductive step.}
+Let \(s\in\Active\) with \(\rank(s)=n\).  For every legal action \(a\in\Actions(s)\) and every successor state \(s'\) with \(K(s'\mid s,a)>0\), the rank-decrease lemma gives
+\[
+    \rank(s')=\rank(s)-1=n-1<n.
+\]
+Therefore, by the inductive hypothesis,
+\[
+    P^\impl(s')=V^\opt(s')
+\]
+for every possible successor \(s'\).
+
+Using the recursive definition of \(P^\impl\),
+\[
+\begin{aligned}
+    P^\impl(s)
+    &=
+    \max_{a\in\Actions(s)}
+    \sum_{s'}K(s'\mid s,a)P^\impl(s')\\
+    &=
+    \max_{a\in\Actions(s)}
+    \sum_{s'}K(s'\mid s,a)V^\opt(s')\\
+    &=
+    V^\opt(s),
+\end{aligned}
+\]
+where the final equality is the Bellman optimality equation.
+
+Thus \(P^\impl(s)=V^\opt(s)\) for every active state of rank \(n\).  By strong induction, the equality holds for all finite states \(s\in\N^4\).
+\end{proof}
+
+\section{Initial Tier-1 Interface}
+
+The main interface begins with \(X\) tier-1 horses and no other horses:
+\[
+    s_X=(X,0,0,0).
+\]
+
+Define
+\[
+    f(X)=P^\impl(s_X)=V^\opt(s_X).
+\]
+
+Thus \(f(X)\) is the optimal probability of eventually obtaining at least one tier-4 horse from \(X\) tier-1 horses.
+
+\section{Minimal Resource Lemma}
+
+The code records the practical observation that fewer than eight tier-1 horses cannot produce a tier-4 horse, while exactly eight tier-1 horses can succeed only along the perfect upgrade path.  We now prove this formally.
+
+\begin{definition}[Tier-weight potential]
+Define the tier-weight potential
+\[
+    \weight(s)=t_1+2t_2+4t_3+8t_4.
+\]
+This counts the number of tier-1 units represented by the current state if each tier is assigned its binary merge value.
+\end{definition}
+
+\begin{lemma}[Tier-weight is nonincreasing]
+For every legal transition \(s\to s'\),
+\[
+    \weight(s')\le \weight(s).
+\]
+Moreover, equality holds exactly for upgrade outcomes.
+\end{lemma}
+
+\begin{proof}
+We check each action.
+
+For \(a_1\), the upgrade transition is
+\[
+    2T_1\to 1T_2,
+\]
+which changes tier-weight from \(2\) to \(2\).  The non-upgrade tier-1 outcome changes tier-weight from \(2\) to \(1\).
+
+For \(a_2\), the upgrade transition is
+\[
+    2T_2\to 1T_3,
+\]
+which changes tier-weight from \(4\) to \(4\).  The same-tier outcome changes tier-weight from \(4\) to \(2\), and the downgrade outcome changes tier-weight from \(4\) to \(1\).
+
+For \(a_3\), the upgrade transition is
+\[
+    2T_3\to 1T_4,
+\]
+which changes tier-weight from \(8\) to \(8\).  The same-tier outcome changes tier-weight from \(8\) to \(4\), and the downgrade outcome changes tier-weight from \(8\) to \(2\).
+
+Therefore \(\weight\) never increases, and equality occurs exactly on upgrade outcomes.
+\end{proof}
+
+\begin{lemma}[Fewer than eight tier-1 horses cannot succeed]
+If \(X<8\), then
+\[
+    f(X)=0.
+\]
+\end{lemma}
+
+\begin{proof}
+Starting from \(s_X=(X,0,0,0)\),
+\[
+    \weight(s_X)=X.
+\]
+If \(X<8\), then the initial tier-weight is less than \(8\).  Since tier-weight is nonincreasing along every transition, no reachable state can have tier-weight at least \(8\).  But every success state has \(t_4\ge1\), hence has
+\[
+    \weight(s)\ge 8.
+\]
+Therefore no success state is reachable, and the optimal success probability is \(0\).
+\end{proof}
+
+\begin{lemma}[Exactly eight tier-1 horses succeed only by perfect upgrades]
+Starting from \(s_8=(8,0,0,0)\), every successful trajectory consists entirely of upgrade outcomes.  Consequently,
+\[
+    f(8)=\left(\frac15\right)^7.
+\]
+\end{lemma}
+
+\begin{proof}
+The initial tier-weight is
+\[
+    \weight(s_8)=8.
+\]
+Any success state must have \(t_4\ge1\), hence tier-weight at least \(8\).  Since tier-weight is nonincreasing, any successful trajectory from \(s_8\) must preserve tier-weight at every step.  By the previous lemma, tier-weight is preserved exactly when every outcome is an upgrade.
+
+It remains to count the number of upgrade outcomes required.  Starting from eight tier-1 horses, reaching one tier-4 horse by binary merging requires
+\[
+    8T_1 \to 4T_2 \to 2T_3 \to 1T_4.
+\]
+This consists of
+\[
+    4+2+1=7
+\]
+upgrade outcomes.  Each upgrade has probability \(1/5\), and these outcome probabilities multiply along the path.  Therefore
+\[
+    f(8)=\left(\frac15\right)^7.
+\]
+\end{proof}
+
+\section{Empirical Scaling: What Is Proven and What Is Observed}
+
+The implementation includes a log-log regression step intended to describe how \(f(X)\) scales over sampled values of \(X\).  This is useful empirical analysis, but it should be separated from the exact correctness theorem above.
+
+\begin{definition}[Finite-window scaling fit]
+Let \(I\subset\N\) be a finite set of sampled inputs with \(f(X)>0\) for all \(X\in I\).  A finite-window power-law fit estimates constants \(c>0\) and \(\alpha\in\R\) such that
+\[
+    f(X)\approx cX^\alpha
+\]
+for \(X\in I\), usually by linear regression on
+\[
+    \log f(X)\approx \log c+\alpha\log X.
+\]
+\end{definition}
+
+\begin{proposition}[No positive power law can hold globally]
+There do not exist constants \(c>0\), \(\alpha>0\), and \(X_0\in\N\) such that
+\[
+    f(X)=cX^\alpha
+\]
+for all \(X\ge X_0\).
+\end{proposition}
+
+\begin{proof}
+For every \(X\), \(f(X)\) is a probability, so
+\[
+    0\le f(X)\le 1.
+\]
+If \(f(X)=cX^\alpha\) for all \(X\ge X_0\), with \(c>0\) and \(\alpha>0\), then
+\[
+    cX^\alpha\to\infty
+\]
+as \(X\to\infty\).  In particular, for sufficiently large \(X\), one has \(cX^\alpha>1\), contradicting \(f(X)\le1\).  Therefore no such global positive power law exists.
+\end{proof}
+
+\begin{remark}[Safe scaling language]
+A statement such as
+\[
+    f(X)\propto X^{1.8}
+\]
+should be interpreted as a finite-range empirical fit unless a bounded saturating model is supplied.  A safer claim is:
+
+\begin{quote}
+Over the sampled finite range, the log-log regression of \(f(X)\) against \(X\) exhibits an approximate power-law exponent near \(\alpha\).
+\end{quote}
+
+This preserves the useful empirical observation without overstating it as a global theorem.
+\end{remark}
+
+\section{Proof-Tool Selection Map}
+
+This project is also useful as a worked example of proof-tool selection.  The theorem's shape and mathematical material naturally select the proof tools.
+
+\subsection{Claim shape}
+
+The main claim is an algorithm-correctness theorem:
+\[
+    \forall s\in\N^4,\quad P^\impl(s)=V^\opt(s).
+\]
+This activates the following proof-tool nodes:
+
+\[
+    \text{Universal claim}
+    \longrightarrow
+    \text{arbitrary state}
+    \longrightarrow
+    \text{induction candidate}.
+\]
+
+\subsection{Mathematical material}
+
+The object is a finite-horizon recursive decision process.  This activates:
+
+\[
+    \text{State-transition graph}
+    \longrightarrow
+    \text{rank / monovariant}
+    \longrightarrow
+    \text{well-founded recursion}.
+\]
+
+The decision component activates:
+
+\[
+    \text{choice of action}
+    \longrightarrow
+    \text{Bellman recurrence}
+    \longrightarrow
+    \text{optimal substructure}.
+\]
+
+\subsection{Selected proof tools}
+
+The final selected tools are:
+
+\begin{enumerate}
+    \item \textbf{Rank monovariant:} \(\rank(s)\) decreases after every legal move.
+    \item \textbf{Strong induction:} prove correctness over increasing total horse count.
+    \item \textbf{Bellman optimality:} first action plus optimal continuation.
+    \item \textbf{Potential function:} \(\weight(s)\) proves the eight-horse resource bound.
+    \item \textbf{Boundedness audit:} probability bounded by \(1\) prevents global positive power-law scaling.
+\end{enumerate}
+
+\section{Implementation Obligations for the Verification Script}
+
+The next computational artifact should verify the proof numerically and exactly.  A recommended Python verifier should include:
+
+\begin{enumerate}
+    \item Exact rational constants:
+    \[
+        p_+=\frac15,\qquad p_0=\frac12,\qquad p_-=\frac3{10}.
+    \]
+    \item A recursive memoized solver for \(P^\impl(s)\).
+    \item A bottom-up dynamic-programming solver ordered by \(\rank(s)\).
+    \item Equality checks between recursive and bottom-up values for all states up to a chosen rank bound.
+    \item The exact check
+    \[
+        f(8)=\left(\frac15\right)^7.
+    \]
+    \item A Monte Carlo simulator used only as a sanity check, not as proof.
+    \item A finite-window scaling report that labels fitted exponents as empirical.
+\end{enumerate}
+
+\section{Conclusion}
+
+The recursive horse-combination calculator is correct because the process is a finite acyclic Markov decision process under the rank
+\[
+    \rank(s)=t_1+t_2+t_3+t_4.
+\]
+Every legal action reduces this rank by one, so the recursive value function is well-founded.  At each active state, the optimal strategy chooses the legal action with maximal expected optimal continuation value.  This is exactly the Bellman recurrence implemented by the algorithm.
+
+The exact theorem is therefore:
+
+\[
+    \boxed{
+    P^\impl(s)=V^\opt(s)
+    \quad
+    \text{for every finite horse state }s.
+    }
+\]
+
+The minimal-resource theorem adds:
+
+\[
+    \boxed{
+    f(X)=0\text{ for }X<8,
+    \qquad
+    f(8)=\left(\frac15\right)^7.
+    }
+\]
+
+Empirical scaling analysis remains valuable, but it belongs to the computational-observation layer rather than the formal theorem layer.
+
+\end{document}

@@ -1,0 +1,22 @@
+{
+  "edge_count": 33,
+  "kind_counts": {
+    "artifact": 5,
+    "check": 3,
+    "claim": 2,
+    "lemma": 7,
+    "material": 4,
+    "tool": 4,
+    "warning": 3
+  },
+  "layer_counts": {
+    "0": 3,
+    "1": 5,
+    "2": 5,
+    "3": 4,
+    "4": 5,
+    "5": 3,
+    "6": 3
+  },
+  "node_count": 28
+}
