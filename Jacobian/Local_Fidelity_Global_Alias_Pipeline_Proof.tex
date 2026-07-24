@@ -1,0 +1,752 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo}
+\usepackage[scaled=0.92]{helvet}
+\usepackage{microtype}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{bookmark}
+
+\geometry{
+  top=0.88in,
+  bottom=0.88in,
+  inner=0.92in,
+  outer=0.92in,
+  headheight=15pt,
+  headsep=22pt,
+  footskip=30pt
+}
+
+\definecolor{JGPBlue}{HTML}{2E74B5}
+\definecolor{JGPDarkBlue}{HTML}{1F4D78}
+\definecolor{JGPInk}{HTML}{16283A}
+\definecolor{JGPMuted}{HTML}{5D6670}
+\definecolor{JGPLight}{HTML}{F4F6F9}
+\definecolor{JGPBorder}{HTML}{CAD6E2}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=JGPDarkBlue,
+  citecolor=JGPDarkBlue,
+  urlcolor=JGPBlue,
+  pdftitle={Local Fidelity, Global Alias},
+  pdfsubject={A Pipeline Proof of the Three-Dimensional Jacobian Counterexample},
+  pdfauthor={Jon Poplett},
+  pdfkeywords={Jacobian conjecture, polynomial map, counterexample, local fidelity, global alias, proof pipeline}
+}
+\urlstyle{same}
+
+\setstretch{1.075}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.54em}
+\setlist[itemize]{leftmargin=1.65em,itemsep=0.23em,topsep=0.35em}
+\setlist[enumerate]{leftmargin=1.85em,itemsep=0.23em,topsep=0.35em}
+\setcounter{secnumdepth}{2}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\UPSN}{\textsc{Universal Proof Selection Network}}
+
+\newtheoremstyle{jgpplain}
+  {0.85em}
+  {0.65em}
+  {\itshape}
+  {}
+  {\bfseries\color{JGPDarkBlue}}
+  {.}
+  {0.5em}
+  {}
+\theoremstyle{jgpplain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\newtcolorbox{mechanismbox}{
+  enhanced,
+  breakable,
+  colback=JGPLight,
+  colframe=JGPBlue,
+  boxrule=0pt,
+  borderline west={2.2pt}{0pt}{JGPBlue},
+  arc=0pt,
+  left=10pt,
+  right=10pt,
+  top=7pt,
+  bottom=7pt
+}
+
+\newtcolorbox{routebox}{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=JGPBorder,
+  boxrule=0.55pt,
+  arc=1pt,
+  left=10pt,
+  right=10pt,
+  top=7pt,
+  bottom=7pt
+}
+
+\newtcolorbox{auditbox}{
+  enhanced,
+  breakable,
+  colback=JGPLight,
+  colframe=JGPBorder,
+  boxrule=0.55pt,
+  arc=1pt,
+  left=10pt,
+  right=10pt,
+  top=7pt,
+  bottom=7pt
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\sffamily\bfseries\footnotesize\color{JGPMuted}LOCAL FIDELITY, GLOBAL ALIAS}
+\fancyfoot[R]{\sffamily\footnotesize\color{JGPMuted}JGPTECH RESEARCH NOTE\enspace$\cdot$\enspace Page \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0pt}%
+  {-2.7ex plus -0.8ex minus -0.2ex}%
+  {1.15ex plus 0.2ex}%
+  {\normalfont\sffamily\Large\bfseries\color{JGPBlue}}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0pt}%
+  {-2.1ex plus -0.6ex minus -0.2ex}%
+  {0.85ex plus 0.2ex}%
+  {\normalfont\sffamily\large\bfseries\color{JGPDarkBlue}}}
+\makeatother
+
+\begin{document}
+
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\thispagestyle{empty}
+\vspace*{0.38in}
+
+{\sffamily\bfseries\fontsize{29}{33}\selectfont\color{JGPInk}
+Local Fidelity,\\[2pt]Global Alias\par}
+
+\vspace{0.22in}
+{\color{JGPBlue}\rule{\textwidth}{2.2pt}}
+\vspace{0.22in}
+
+{\sffamily\fontsize{16}{21}\selectfont\color{JGPDarkBlue}
+A Pipeline Proof of the Three-Dimensional\\
+Jacobian Counterexample\par}
+
+\vspace{0.42in}
+
+{\sffamily\bfseries\large Jon Poplett\par}
+\vspace{0.08in}
+{\sffamily\color{JGPMuted}
+JGPTech Research Note \(\cdot\) 24 July 2026\\
+AI-assisted proof construction and exact symbolic audit\par}
+
+\vspace{0.52in}
+
+\begin{mechanismbox}
+\textbf{\color{JGPDarkBlue}Central mechanism.}
+A polynomial representation may preserve every infinitesimal degree of freedom
+while erasing a discrete global state label. The Jacobian detects the first
+fact. A collision detects the second.
+\end{mechanismbox}
+
+\vfill
+
+{\sffamily\small\color{JGPMuted}
+\textbf{Primary author and investigator:} Jon Poplett\\
+\textbf{Verification:} Exact polynomial arithmetic over the rational numbers
+\par}
+\end{titlepage}
+\hypersetup{pageanchor=true}
+\setcounter{page}{1}
+
+\section*{Abstract}
+\addcontentsline{toc}{section}{Abstract}
+
+We give a self-contained proof that the Jacobian conjecture is false in
+dimension three. The explicit degree-seven map is already publicly known; the
+contribution of this note is a proof architecture that derives the certificate
+from a general counterexample-construction pipeline.
+
+The full state is a \emph{marked factorization} \((L,Q)\) of a binary cubic.
+The visible representation is the product \(LQ\), which forgets which of the
+cubic's three roots was assigned to the linear factor. A resultant
+normalization removes the continuous scaling gauge and makes multiplication
+locally faithful, while the discrete three-way ambiguity survives globally. A
+specially aligned affine slice then closes under a two-level residual
+hierarchy. Promoting those residuals to coordinates produces an affine
+three-space and, after linear coordinate changes, the compact counterexample.
+
+Thus the proof is routed as follows.
+
+\begin{routebox}
+\centering\sffamily\bfseries\color{JGPDarkBlue}
+marked state \(\longrightarrow\) visible product
+\(\longrightarrow\) gauge normalization
+\(\longrightarrow\) local fidelity\\[2pt]
+\(\longrightarrow\) global alias
+\(\longrightarrow\) boundary closure
+\(\longrightarrow\) finite certificate
+\end{routebox}
+
+No numerical approximation is used.
+
+\section{Theorem intake and proof route}
+
+The Jacobian conjecture over \(\C\) asserts that every polynomial map
+\[
+F:\C^n\longrightarrow\C^n
+\]
+with nonzero constant Jacobian determinant has a polynomial inverse.
+
+The claim to be proved is existential.
+
+\begin{theorem}\label{thm:counterexample}
+There exists a polynomial map \(F:\C^3\to\C^3\) whose Jacobian determinant is
+the nonzero constant \(-2\), but which is not injective. Consequently, the
+Jacobian conjecture is false in dimension three and in every dimension
+\(n\geq 3\).
+\end{theorem}
+
+The proof obligations are exact:
+\begin{enumerate}
+  \item construct a polynomial map \(F:\C^3\to\C^3\);
+  \item prove \(\det DF\equiv -2\);
+  \item exhibit distinct points with the same image.
+\end{enumerate}
+
+The pipeline adds four construction obligations before the final certificate.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.22}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.34\textwidth}
+                >{\raggedright\arraybackslash}p{0.57\textwidth}}
+\toprule
+\sffamily\bfseries Pipeline stage &
+\sffamily\bfseries Mathematical obligation\\
+\midrule
+Full state and visible representation &
+Identify what information the map retains and what it erases\\
+Invariant-preserving constraint &
+Remove trivial continuous nonuniqueness without destroying the target collision\\
+Local control &
+Prove the constrained representation is infinitesimally faithful\\
+Boundary closure &
+Find polynomial coordinates covering the degenerate boundary and the generic
+region simultaneously\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{The marked-factor representation}
+
+Let \(U,V\) be homogeneous variables. Write
+\[
+L(U,V)=aU+bV,
+\qquad
+Q(U,V)=cU^2+dUV+eV^2.
+\]
+Their product is the binary cubic
+\[
+LQ
+=ac\,U^3+(ad+bc)U^2V+(ae+bd)UV^2+be\,V^3.
+\]
+Therefore multiplication defines the polynomial representation
+\[
+M:\C^5\longrightarrow\C^4,
+\qquad
+M(a,b,c,d,e)=(ac,\ ad+bc,\ ae+bd,\ be).
+\]
+
+The input remembers a marked decomposition: one root belongs to \(L\), while
+the other two belong to \(Q\). The output remembers only the product.
+
+If a cubic has three distinct linear factors,
+\[
+C=L_1L_2L_3,
+\]
+then the three marked states
+\[
+(L_1,L_2L_3),\qquad
+(L_2,L_1L_3),\qquad
+(L_3,L_1L_2)
+\]
+all have visible representation \(C\). This is the global alias we want, but
+multiplication also has a trivial continuous ambiguity:
+\[
+(L,Q)\longmapsto(\lambda L,\lambda^{-1}Q),
+\qquad \lambda\in\C^\times.
+\]
+We remove that gauge before testing whether any genuine collision remains.
+
+\section{Gauge normalization and local fidelity}
+
+Define the resultant
+\[
+R(L,Q)
+=R(a,b,c,d,e)
+=a^2e-abd+b^2c.
+\]
+It vanishes exactly when \(L\) and \(Q\) share a projective root. Under the
+gauge transformation above,
+\[
+R(\lambda L,\lambda^{-1}Q)=\lambda R(L,Q).
+\]
+Hence every state with \(R\neq0\) has a unique gauge representative satisfying
+\[
+R=1.
+\]
+Let
+\[
+Y=\{(a,b,c,d,e)\in\C^5:R(a,b,c,d,e)=1\}.
+\]
+
+\begin{lemma}[Multiplication is locally faithful on the normalized state space]
+\label{lem:local-fidelity}
+For every \(p\in Y\), the differential
+\[
+d(M|_Y)_p:T_pY\longrightarrow\C^4
+\]
+is an isomorphism.
+\end{lemma}
+
+\begin{proof}
+Since \(R(p)=1\), the polynomials \(L\) and \(Q\) are coprime. Let
+\((\dot L,\dot Q)\in T_pY\) lie in the kernel of \(dM_p\).
+Differentiating \(LQ\) gives
+\[
+\dot L\,Q+L\,\dot Q=0.
+\]
+Thus \(L\mid \dot LQ\). Because \(\gcd(L,Q)=1\), unique factorization in
+\(\C[U,V]\) gives \(L\mid\dot L\). Both are linear, so
+\(\dot L=tL\) for some \(t\in\C\). The differentiated product identity then
+gives \(\dot Q=-tQ\).
+
+The only possible infinitesimal kernel direction is therefore the gauge
+direction. But differentiating the resultant scaling law at \(\lambda=1\)
+gives
+\[
+dR_p(tL,-tQ)=tR(p)=t.
+\]
+Tangency to \(Y=\{R=1\}\) requires \(dR_p(\dot L,\dot Q)=0\), hence \(t=0\).
+Thus the differential is injective.
+
+The hypersurface \(Y\) is smooth: \(R\) is homogeneous of degree three, so
+Euler's identity gives
+\[
+aR_a+bR_b+cR_c+dR_d+eR_e=3R=3
+\]
+on \(Y\); consequently \(\nabla R\neq0\). Hence
+\(\dim T_pY=4\), equal to the target dimension. The injective differential is
+therefore an isomorphism.
+\end{proof}
+
+The pipeline control has now passed: after the trivial gauge is removed,
+multiplication loses no infinitesimal information. Nevertheless, the three
+distinct marked states constructed above remain. The resultant normalization
+removes a continuous redundancy but cannot restore the erased discrete label.
+
+Indeed, each marked factorization of a cubic with three distinct roots has
+nonzero resultant. Choosing \(\lambda=R(L,Q)^{-1}\) in the scaling law
+normalizes it to \(R=1\) without changing the product, so all three marked
+states survive inside \(Y\).
+
+\section{The affine boundary and residual closure}
+
+Let \(\mathcal V\subset\C^4\) be the affine hyperplane where the
+\(U^2V\)-coefficient equals one:
+\[
+\mathcal V=\{(f,g,h,i)\in\C^4:g=1\}.
+\]
+Its normalized preimage is
+\[
+X
+=Y\cap M^{-1}(\mathcal V)
+=\left\{
+(a,b,c,d,e)\in\C^5:
+\begin{array}{l}
+a^2e-abd+b^2c=1,\\
+ad+bc=1
+\end{array}
+\right\}.
+\]
+
+The double-root slice enters here through the middle coefficient \(ad+bc\).
+At the boundary \(a=0\), the two constraints become
+\[
+b^2c=1,\qquad bc=1,
+\]
+and therefore
+\[
+b=c=1.
+\]
+The generic cubic-quadratic intersection does not branch in the affine
+boundary: it collapses to a single base point in \((b,c)\), with \(d,e\) free.
+This is the closure seam.
+
+The first two normalized residuals are
+\[
+b-1=ay,
+\qquad
+c-1+\frac32ay=a^2z.
+\]
+Promoting \(y\) and \(z\) to coordinates yields the following global chart.
+
+\begin{lemma}[Polynomial closure of the slice]\label{lem:closure}
+The map \(\Phi:\C^3\to X\), defined by
+\[
+a=a,\qquad
+b=1+ay,\qquad
+c=1-\frac32ay+a^2z,
+\]
+\[
+d=\frac12y-az+\frac32ay^2-a^2yz,
+\]
+\[
+e=-2z+4y^2-4ayz+3ay^3-2a^2y^2z,
+\]
+is a polynomial isomorphism.
+\end{lemma}
+
+\begin{proof}
+Substitution in the displayed formulas gives the two polynomial identities
+\[
+ad+bc=1,
+\qquad
+2bd-ae=y.
+\]
+Because \(b=1+ay\), these identities imply
+\begin{align*}
+a^2e-abd+b^2c
+  &=a^2e-abd+b(1-ad)\\
+  &=a^2e-2abd+b\\
+  &=b-ay\\
+  &=1.
+\end{align*}
+Thus \(\Phi(\C^3)\subseteq X\).
+
+Conversely, take \((a,b,c,d,e)\in X\) and define polynomially
+\[
+y=2bd-ae,
+\qquad
+z=2d^2+3dy+e\left(c-\frac32\right).
+\]
+Using the two equations of \(X\),
+\begin{align*}
+ay
+  &=2abd-a^2e\\
+  &=abd+b^2c-1\\
+  &=b(ad+bc)-1\\
+  &=b-1.
+\end{align*}
+Hence \(b=1+ay\). Next,
+\begin{align*}
+\frac32y-d-yc
+  &=d(3b-1-2bc)+ae\left(c-\frac32\right)\\
+  &=a\left(3dy+2d^2+e\left(c-\frac32\right)\right)\\
+  &=az,
+\end{align*}
+where we used \(bc=1-ad\) and \(b-1=ay\). Since \(b=1+ay\) and
+\(bc=1-ad\),
+\[
+c+ayc=1-ad,
+\qquad\text{so}\qquad
+c-1=-a(d+yc).
+\]
+Together with the preceding identity, this gives
+\[
+c-1+\frac32ay=a^2z,
+\]
+which recovers the displayed formula for \(c\).
+
+If \(a\neq0\), substituting the recovered \(b,c\) into \(ad+bc=1\) gives the
+displayed formula for \(d\). The relation \(y=2bd-ae\) then gives the displayed
+formula for \(e\).
+
+It remains to treat the boundary rather than cancel \(a\). If \(a=0\), the
+boundary equations give \(b=c=1\). The polynomial inverse coordinates then
+give
+\[
+y=2d,
+\qquad
+z=8d^2-\frac12e.
+\]
+Therefore
+\[
+d=\frac12y,
+\qquad
+e=-2z+4y^2,
+\]
+which are exactly the \(a=0\) cases of the displayed formulas. Thus the two
+polynomial coordinates in the inverse construction define an inverse to
+\(\Phi\) on all of \(X\), including the degenerate fiber.
+\end{proof}
+
+This is the differential-closure step of the pipeline: the first residual is
+divisible by \(a\), the corrected second residual is divisible by \(a^2\), and
+the resulting coordinates close after two levels.
+
+\section{The induced map and the structural Jacobian}
+
+Identify \(\mathcal V\) with \(\C^3\) by deleting its fixed second coordinate.
+The induced map
+\[
+P:\C^3\longrightarrow\C^3
+\]
+is
+\[
+P(a,y,z)=\bigl(G_1(a,y,z),G_2(a,y,z),G_3(a,y,z)\bigr),
+\]
+where
+\[
+G_1=a-\frac32a^2y+a^3z,
+\]
+\[
+G_2=\frac12y-3az+6ay^2-6a^2yz
+     +\frac92a^2y^3-3a^3y^2z,
+\]
+\[
+G_3=-2z+4y^2-6ayz+7ay^3-6a^2y^2z
+     +3a^2y^4-2a^3y^3z.
+\]
+These are simply the remaining coefficients
+\[
+(G_1,G_2,G_3)=(ac,\ ae+bd,\ be)
+\]
+after substitution of the polynomial chart.
+
+By Lemma~\ref{lem:local-fidelity}, \(M|_Y\) is locally invertible. Restricting
+it to the inverse image of the smooth hyperplane \(\mathcal V\) preserves local
+invertibility. Lemma~\ref{lem:closure} supplies polynomial coordinates on that
+inverse image. Therefore \(DP\) is invertible at every point of \(\C^3\), so
+\(\det DP\) is a polynomial with no complex zero.
+
+A nonconstant polynomial over \(\C\) has a zero after restriction to a suitable
+complex line. Hence every nowhere-zero polynomial on \(\C^3\) is constant. At
+the origin, the displayed linear terms give
+\[
+DP(0,0,0)
+=
+\begin{pmatrix}
+1&0&0\\
+0&\frac12&0\\
+0&0&-2
+\end{pmatrix}.
+\]
+Consequently,
+\[
+\det DP\equiv -1.
+\]
+
+The large cancellation in the expanded Jacobian is therefore not accidental:
+it is forced by local fidelity, polynomial closure, and the fact that a
+nowhere-zero complex polynomial is a unit.
+
+\section{Compact certificate}
+
+Introduce source coordinates \((x,y,t)\) by
+\[
+(a,y,z)=\left(x,y,-\frac12t\right)
+\]
+and apply the linear target change
+\[
+S(u,v,w)=(w,2v,2u).
+\]
+Define
+\[
+F=S\circ P\circ T,
+\qquad
+T(x,y,t)=\left(x,y,-\frac12t\right).
+\]
+Expanding gives the compact certificate
+\[
+F_1(x,y,t)
+=(1+xy)^3t+y^2(1+xy)(4+3xy),
+\]
+\[
+F_2(x,y,t)
+=y+3x(1+xy)^2t+3xy^2(4+3xy),
+\]
+\[
+F_3(x,y,t)
+=2x-3x^2y-x^3t.
+\]
+
+Since
+\[
+\det DS=-4,
+\qquad
+\det DP=-1,
+\qquad
+\det DT=-\frac12,
+\]
+the chain rule gives
+\[
+\det DF=(-4)(-1)\left(-\frac12\right)=-2.
+\]
+
+It remains to expose the global alias. Let
+\[
+p_0=\left(0,0,-\frac14\right),
+\qquad
+p_\varepsilon=
+\left(\varepsilon,-\frac32\varepsilon,\frac{13}{2}\right),
+\quad \varepsilon\in\{1,-1\}.
+\]
+At \(p_0\), direct substitution gives
+\(F(p_0)=(-\tfrac14,0,0)\). At \(p_\varepsilon\),
+\[
+xy=-\frac32,\qquad 1+xy=-\frac12,\qquad y^2=\frac94.
+\]
+Therefore
+\[
+F_1(p_\varepsilon)
+=-\frac{13}{16}+\frac{9}{16}
+=-\frac14,
+\]
+\[
+F_2(p_\varepsilon)
+=-\frac{3\varepsilon}{2}
+ +\frac{39\varepsilon}{8}
+-\frac{27\varepsilon}{8}
+=0,
+\]
+\[
+F_3(p_\varepsilon)
+=2\varepsilon+\frac{9\varepsilon}{2}
+-\frac{13\varepsilon}{2}
+=0.
+\]
+Thus the three distinct points satisfy
+\[
+F(p_0)=F(p_1)=F(p_{-1})
+=\left(-\frac14,0,0\right).
+\]
+
+The map \(F\) is polynomial and has constant nonzero Jacobian determinant, yet
+it is not injective. This proves Theorem~\ref{thm:counterexample}. For \(n>3\),
+the product map
+\[
+(F,\id_{\C^{\,n-3}}):\C^n\longrightarrow\C^n
+\]
+has the same collision and the same nonzero constant Jacobian up to the
+identity factor.
+
+\section{Closure audit}
+
+The \UPSN{} requires closure before presentation. The proof satisfies the
+audit.
+
+\begin{auditbox}
+\begin{itemize}
+  \item \textbf{Exact claim:} an explicit counterexample over \(\C^3\) was
+        constructed.
+  \item \textbf{Domain:} every displayed map is polynomial on the stated
+        affine space.
+  \item \textbf{Local condition:} \(\det DF\equiv-2\), established
+        structurally by the chain rule.
+  \item \textbf{Global failure:} three distinct rational points have one exact
+        image.
+  \item \textbf{Gauge control:} the continuous scaling ambiguity was removed
+        before the discrete collision was used.
+  \item \textbf{Boundary case:} \(a=0\) was handled separately; no illegal
+        division by \(a\) occurs.
+  \item \textbf{Circularity:} affineness, local fidelity, and noninjectivity
+        were proved by separate obligations.
+  \item \textbf{Theorem/experiment separation:} symbolic computation was used
+        only as an independent exact audit; the written proof does not depend
+        on numerical evidence.
+\end{itemize}
+\end{auditbox}
+
+\section{Interpretation}
+
+The counterexample has a compact conceptual form.
+
+\begin{mechanismbox}
+\centering\bfseries\color{JGPInk}
+Local differential fidelity does not imply global state fidelity.
+\end{mechanismbox}
+
+The Jacobian records whether the visible representation collapses
+infinitesimal directions. It cannot record a discrete state label that the
+representation has already erased. Here that label is the choice of which root
+belongs to the marked linear factor.
+
+The resultant normalization proves that no continuous ambiguity remains. The
+affine slice proves that the constrained state space is still ordinary
+three-dimensional affine space. The collision proves that the erased discrete
+label remains globally consequential. The final polynomial is the compressed
+certificate of that mechanism.
+
+\section*{Provenance and disclosure}
+\addcontentsline{toc}{section}{Provenance and disclosure}
+
+The explicit degree-seven counterexample displayed above was publicly
+attributed to the Fable AI system in July 2026 and was subsequently discussed
+in geometric form by Terence Tao and David Speyer
+\cite{Tao2026,Speyer2026}. This note does
+\textbf{not} claim discovery of the displayed map. It gives an independently
+organized proof through Jon Poplett's established pipeline.
+
+\begin{routebox}
+\centering\sffamily\bfseries\color{JGPDarkBlue}
+representation \(\longrightarrow\) constraint
+\(\longrightarrow\) local control
+\(\longrightarrow\) collision\\[2pt]
+\(\longrightarrow\) independent witness
+\(\longrightarrow\) boundary closure
+\(\longrightarrow\) exact certificate
+\end{routebox}
+
+\begin{itemize}
+  \item \textbf{Primary author and investigator:} Jon Poplett.
+  \item \textbf{Assistance:} AI-assisted drafting, algebra checking, and
+        document preparation.
+  \item \textbf{Verification:} all decisive polynomial identities were checked
+        exactly over the rational numbers; no floating-point inference enters
+        the theorem.
+\end{itemize}
+
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{9}
+
+\bibitem{Tao2026}
+Terence Tao,
+\emph{A digestion of the Jacobian conjecture counterexample},
+What's New, 21 July 2026.
+\href{https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/}{Online article}.
+
+\bibitem{Speyer2026}
+David E. Speyer,
+\emph{The new counterexample to the Jacobian conjecture},
+Secret Blogging Seminar, 20 July 2026.
+\href{https://sbseminar.wordpress.com/2026/07/20/the-new-counterexample-to-the-jacobian-conjecture/}{Online article}.
+
+\bibitem{PoplettProtocol2026}
+Jon Poplett,
+\emph{Universal Proof Selection Network---Proof Construction Protocol},
+unpublished working protocol, July 2026.
+
+\bibitem{PoplettCheckpoint2026}
+Jon Poplett,
+\emph{Checkpoint Process Reports 01--11: Finite Local Neighborhood Aliasing},
+unpublished research notes, 13 June 2026.
+
+\end{thebibliography}
+
+\end{document}
