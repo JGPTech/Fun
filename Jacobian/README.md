@@ -70,7 +70,7 @@ Thus \(F\) has constant nonzero Jacobian determinant but is not injective.
 The product map
 
 $$
-\left(F,\operatorname{id}_{\mathbb{C}^{\,n-3}}\right)
+\left(F,\mathrm{id}_{\mathbb{C}^{\,n-3}}\right)
 $$
 
 extends the same certificate to every dimension \(n\geq 3\).
@@ -222,6 +222,20 @@ therefore applies conservative defaults for:
 Candidates that exceed a cap are rejected before acceptance. Increase the
 limits cautiously when exploring deeper or higher-degree automorphism
 compositions.
+
+---
+
+## Update 
+
+Added a blind marked-factor search for the polynomial Jacobian counterexample check point showing the pipeline can be used in a search algo to find a counter example. The search is blind with respect to the final certificate: it does not assume a coefficient slice, boundary modulus, polynomial chart, degree-seven map, or specific collision witness.
+
+The structural input is the marked factorization
+
+L = a*U + b*V,
+
+Q = c*U**2 + d*U*V + e*V**2,
+
+together with its visible cubic coefficients and the resultant normalization R(L,Q) = 1, which removes the continuous scaling gauge.
 
 ---
 
