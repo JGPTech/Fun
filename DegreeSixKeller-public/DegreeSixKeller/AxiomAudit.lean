@@ -1,0 +1,102 @@
+import DegreeSixKeller
+
+/-!
+# Trust audit entry point
+
+Compile this file after `lake build`.  Lean prints the axioms used by the
+public algebraic and transport theorems.  The project contains no local axiom
+declarations or proof holes.
+-/
+
+#print axioms DegreeSixKeller.omega_eval
+#print axioms DegreeSixKeller.omega_coeff_six
+#print axioms DegreeSixKeller.omega_derivative_eval
+#print axioms DegreeSixKeller.eta004_root_iff
+#print axioms DegreeSixKeller.eta006_not_root
+#print axioms DegreeSixKeller.nonproperness_leftRight
+#print axioms DegreeSixKeller.componentCount_eq_of_escapeLeftRightEquivalent
+#print axioms DegreeSixKeller.cex004_cex006_inequivalent_of_component_counts
+#print axioms DegreeSixKeller.isIrreducible_zeroLocus_of_isPrime
+#print axioms DegreeSixKeller.zeroLocus_firstCoordinateIdeal
+#print axioms DegreeSixKeller.pHyperplane_isIrreducible
+#print axioms DegreeSixKeller.zeroLocus_coordinateIdeal
+#print axioms DegreeSixKeller.criticalImage_isIrreducible
+#print axioms DegreeSixKeller.cex004_finiteComponentIrreducible
+#print axioms DegreeSixKeller.cex006_finiteComponentIrreducible
+#print axioms DegreeSixKeller.delta004_criticalTarget
+#print axioms DegreeSixKeller.delta006_criticalTarget
+#print axioms DegreeSixKeller.finiteComponent004_subset_delta
+#print axioms DegreeSixKeller.finiteComponent006_subset_delta
+#print axioms DegreeSixKeller.cex004_noVerticalHyperplane
+#print axioms DegreeSixKeller.cex006_noVerticalHyperplane
+#print axioms DegreeSixKeller.cex004_candidate_componentCount
+#print axioms DegreeSixKeller.cex006_candidate_componentCount
+#print axioms DegreeSixKeller.algebraicComponentCount_eq_finset_card
+#print axioms DegreeSixKeller.reducedCandidate004_componentCount
+#print axioms DegreeSixKeller.reducedCandidate006_componentCount
+#print axioms DegreeSixKeller.cex004_actual_componentCount
+#print axioms DegreeSixKeller.cex006_actual_componentCount
+#print axioms DegreeSixKeller.irreducibleComponentNcard_eq_of_homeomorph
+#print axioms DegreeSixKeller.algebraicComponentCount_image
+#print axioms DegreeSixKeller.cex004_cex006_inequivalent_of_pair_geometry
+#print axioms DegreeSixKeller.nonpropernessSet_isClosed
+#print axioms DegreeSixKeller.criticalImage_subset_nonproperness
+#print axioms DegreeSixKeller.pHyperplane_zero_subset_nonproperness004
+#print axioms DegreeSixKeller.pHyperplane_zero_subset_nonproperness006
+#print axioms DegreeSixKeller.pHyperplane_root_subset_nonproperness004
+#print axioms DegreeSixKeller.finiteComponent004_subset_nonproperness
+#print axioms DegreeSixKeller.finiteComponent006_subset_nonproperness
+#print axioms DegreeSixKeller.cex004_nonproperness_subset_candidate
+#print axioms DegreeSixKeller.cex006_nonproperness_subset_candidate
+#print axioms DegreeSixKeller.cex004_reducedNonpropernessEquality
+#print axioms DegreeSixKeller.cex006_reducedNonpropernessEquality
+#print axioms DegreeSixKeller.cex004_actual_componentCount_unconditional
+#print axioms DegreeSixKeller.cex006_actual_componentCount_unconditional
+#print axioms DegreeSixKeller.cex004_cex006_not_algebraicEscapeEquivalent
+#print axioms DegreeSixKeller.continuous_polynomialCoordinateMap
+#print axioms DegreeSixKeller.continuous_polynomialCoordinateMap_affineZariski
+#print axioms DegreeSixKeller.PolynomialAutomorphism.zariskiCompatible
+#print axioms DegreeSixKeller.escapes_homeomorph
+#print axioms DegreeSixKeller.algebraicEscapeLeftRightEquivalent_of_polynomialLeftRightEquivalent
+#print axioms DegreeSixKeller.cex004_cex006_not_polynomialLeftRightEquivalent
+#print axioms DegreeSixKeller.eval_FhPolynomial
+#print axioms DegreeSixKeller.Fh_jacobianDet
+#print axioms DegreeSixKeller.Fh_isKeller
+#print axioms DegreeSixKeller.GenericDegree.Fh_genericDegree_six
+#print axioms DegreeSixKeller.GenericDegreeAutomorphism.genericDegree_eq_one_of_isPolynomialAutomorphism
+#print axioms DegreeSixKeller.GenericDegreeAutomorphism.Fh_notPolynomialAutomorphism
+#print axioms DegreeSixKeller.finiteComponent_isIrreducible
+#print axioms DegreeSixKeller.finiteComponent_eq_deltaZeroLocus
+#print axioms DegreeSixKeller.finiteComponent_isHypersurface
+#print axioms DegreeSixKeller.finiteComponent_dominatesPLine
+#print axioms DegreeSixKeller.finiteComponent_noVerticalHyperplane
+#print axioms DegreeSixKeller.finiteComponent_topologicalKrullDim
+#print axioms DegreeSixKeller.isLocalHomeomorph_polynomialMap_eval
+#print axioms DegreeSixKeller.goodTarget_dense
+#print axioms DegreeSixKeller.fiber_ncard_eq_six
+#print axioms DegreeSixKeller.leading_fiber_finite
+#print axioms DegreeSixKeller.leading_fiber_encard_le_three
+#print axioms DegreeSixKeller.leading_fiber_ncard_le_three
+#print axioms DegreeSixKeller.exists_ball_fiber_ncard_eq_of_not_mem_nonproperness
+#print axioms DegreeSixKeller.Fh_fiber_ncard_eq_six_of_not_mem_nonproperness
+#print axioms DegreeSixKeller.mem_nonproperness_of_Fh_fiber_ncard_lt_six
+#print axioms DegreeSixKeller.Fh_reducedNonpropernessEquality
+#print axioms DegreeSixKeller.mem_nonzeroRoots_iff
+#print axioms DegreeSixKeller.zeroLocusOfP6MulH_eq_sUnion_verticalComponents
+#print axioms DegreeSixKeller.Fh_componentCount
+#print axioms DegreeSixKeller.generalComponents_card
+#print axioms DegreeSixKeller.generalComponents_sUnion
+#print axioms DegreeSixKeller.generalComponents_irredundant
+#print axioms DegreeSixKeller.hFamily_ne_zero
+#print axioms DegreeSixKeller.hFamily_roots
+#print axioms DegreeSixKeller.nonzeroRoots_hFamily
+#print axioms DegreeSixKeller.hFamily_isKeller
+#print axioms DegreeSixKeller.hFamily_genericDegree_six
+#print axioms DegreeSixKeller.hFamily_notPolynomialAutomorphism
+#print axioms DegreeSixKeller.hFamily_componentCount
+#print axioms DegreeSixKeller.algebraicComponentCount_eq_of_polynomialLeftRightEquivalent
+#print axioms DegreeSixKeller.hFamily_not_polynomialLeftRightEquivalent_of_ne
+#print axioms DegreeSixKeller.hFamily_componentCount_range_infinite
+#print axioms DegreeSixKeller.hFamily_infinite_pairwise_polynomialLeftRightInequivalent
+#print axioms DegreeSixKeller.theoremA
+#print axioms DegreeSixKeller.theoremB

@@ -1,0 +1,1149 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1.05in]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{booktabs,tabularx,array,longtable}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,
+            citecolor=blue!45!black,urlcolor=blue!55!black]{hyperref}
+\hypersetup{
+  pdftitle={Nonproperness Components in a Degree-Six Keller Family - Final Lean-Synchronized Edition AF-5},
+  pdfsubject={Human proof and complete Lean 4 formalization of Theorems A and B},
+  pdfkeywords={Keller map, Jacobian conjecture, nonproperness set, Lean 4}
+}
+
+\allowdisplaybreaks[2]
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlist[enumerate]{leftmargin=2.1em,itemsep=0.2em,topsep=0.3em}
+\renewcommand{\thesection}{\Alph{section}}
+
+\definecolor{codebg}{RGB}{246,248,250}
+\definecolor{codeframe}{RGB}{210,215,220}
+\lstset{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{codebg},
+  frame=single,
+  rulecolor=\color{codeframe},
+  breaklines=true,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  aboveskip=0.7em,
+  belowskip=0.7em
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{theoremA}{Theorem A}
+\newtheorem*{theoremB}{Theorem B}
+\newtheorem*{formalresult}{Kernel-checked main result}
+\newtheorem*{componentformula}{General component formula}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\Gm}{\mathbb{G}_{m}}
+\newcommand{\Irr}{\operatorname{Irr}}
+\newcommand{\Aut}{\operatorname{Aut}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Degree-six Keller inequivalence - AF-5 final}
+\fancyhead[R]{\small Human proof / Theorems A and B checked in Lean}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.35pt}
+
+\title{\textbf{Nonproperness Components in a Degree-Six Keller Family}\\[0.35em]
+\large A human proof synchronized with the complete Lean 4 formalization\\[0.2em]
+\normalsize Including the universal family and infinite inequivalent subfamily}
+\author{}
+\date{1 August 2026\\[0.25em]\small Protocol A--F edition, final revision AF-5}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+For the degree-six subfamily of the polynomial Keller maps in Theorem 5.2 of
+\emph{A Counterexample to the Jacobian Conjecture}, we determine the reduced
+nonproperness set.  If the only nonzero deformation parameter is
+$\eta_4=h\in\C[T]\setminus\{0\}$, then
+\[
+ S_{F_h}=D_h\cup V\bigl(p^6h(p)\bigr),
+\]
+where $D_h$ is one irreducible nonvertical hypersurface and contains no
+vertical hyperplane.  Consequently
+\[
+ \#\Irr(S_{F_h})
+ =2+\#\{\alpha\in\C^\times:h(\alpha)=0\},
+\]
+with roots counted without multiplicity.  This proves that CEX-004 and
+CEX-006 are not left-right polynomially equivalent and yields infinitely many
+pairwise inequivalent Keller counterexamples of generic degree six.
+
+The accompanying Lean 4 project is pinned to Lean~4.32.2 and to the exact
+mathlib revision recorded in Section~D.  It now proves the family-wide
+Jacobian identity, the genuine function-field generic degree, the degree-one
+obstruction for polynomial automorphisms, the reduced nonproperness equality
+for every nonzero $h$, the universal component formula, and the explicit
+infinite pairwise inequivalent family.  The parameter-free declarations
+\texttt{theoremA} and \texttt{theoremB} assemble these facts exactly.
+
+The final pinned replay completed successfully with 3507 build jobs.  Its
+enforced audit parsed 92 unique \texttt{\#print axioms} reports and accepted
+only \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}; the
+project source scan found no project-local \texttt{axiom}, \texttt{sorry}, or
+\texttt{admit}.  The release manifest and archive are verified separately.
+All nonproperness and zero-locus equalities are equalities of underlying
+reduced sets; no scheme-theoretic multiplicity statement is asserted.
+\end{abstract}
+
+\tableofcontents
+
+\section{Theorem intake}
+
+\subsection{Exact objects, assumptions, and equality notion}
+
+For a polynomial map $G:\C^n\to\C^n$, write
+\[
+ S_G=
+ \left\{b\in\C^n:
+ \begin{array}{c}
+ \text{there exist }u_k\in\C^n\text{ with }\lVert u_k\rVert\to\infty,\\
+ \text{and }G(u_k)\to b
+ \end{array}
+ \right\}
+\]
+for its nonproperness set.  Throughout, $S_G$ denotes its underlying reduced
+algebraic set.  Thus every equality of nonproperness loci below is equality of
+sets, and every irreducible-component count ignores scheme multiplicities.
+
+The base field is $\C$.  In the family $F_h$ we assume
+$h\in\C[T]\setminus\{0\}$.  Left-right polynomial equivalence means
+\[
+ G=L\circ F\circ R,
+ \qquad L,R\in\Aut_{\mathrm{poly}}(\C^3).
+\]
+The proof uses classical polynomial algebra, Euclidean topology on complex
+affine space, and standard algebraic geometry for constructible images,
+dimension, Zariski closure, and irreducibility.
+
+The intermediate formal relation used by Lean is slightly more explicit.  It
+requires Euclidean homeomorphisms $L$ and $R$, preservation of escaping
+sequences by $R$, a target affine-Zariski homeomorphism $L_z$ compatible with
+$L$ on points, and the identity $G=L\circ F\circ R$.  This relation is named
+\texttt{AlgebraicEscapeLeftRightEquivalent}.  The completed
+\texttt{PolynomialAutomorphism} module represents polynomial forward and
+inverse coordinate triples with exact two-sided inverse laws, derives their
+Euclidean and affine-Zariski homeomorphisms, proves escape preservation, and
+shows that ordinary polynomial left-right equivalence supplies all data in the
+intermediate interface.
+
+\subsection{Claims and proof status}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash\bfseries}p{0.20\textwidth}X >{\raggedright\arraybackslash}p{0.18\textwidth}}
+\toprule
+Item & Exact status & Level \\
+\midrule
+Human mathematics & All displayed mathematical theorems in this document are
+proved from the stated hypotheses, with the standard geometric results
+identified where used. & H1 \\
+Universal Lean family theorem & For every nonzero $h$, Lean proves constant
+Jacobian $-2$, function-field generic degree six, nonautomorphism, the exact
+reduced nonproperness equality, hypersurface and dimension-two finite geometry,
+and the actual component formula. & Checked, unconditional \\
+Formal Theorem A & The parameter-free declaration \texttt{theoremA} proves the
+complete degree-six Keller-counterexample certificates, counts $3$ and $2$,
+and polynomial left-right inequivalence. & Checked, unconditional \\
+Formal Theorem B & Lean proves the product family has count $m+2$, an infinite
+range, and pairwise polynomial left-right inequivalence on that same range. &
+Checked, unconditional \\
+Polynomial left-right bridge & Polynomial coordinate automorphisms with
+polynomial inverses induce the required Euclidean and affine-Zariski
+homeomorphisms and preserve component counts. & Checked, unconditional \\
+Equality notion & Reduced algebraic sets only; no scheme-theoretic
+multiplicity is claimed. & Explicit \\
+Trust boundary & No project-local \texttt{axiom}, \texttt{sorry}, or
+\texttt{admit}; audited declarations use only \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}. & Audited \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{theoremA}
+The degree-six Keller counterexamples CEX-004 and CEX-006 are not left-right
+polynomially equivalent.  Their reduced nonproperness sets have respectively
+three and two irreducible components:
+\[
+ \#\Irr(S_{\mathrm{CEX\text{-}004}})=3,
+ \qquad
+ \#\Irr(S_{\mathrm{CEX\text{-}006}})=2.
+\]
+Here left-right polynomial equivalence means the notion fixed above.
+\end{theoremA}
+
+\begin{theoremB}
+There are infinitely many pairwise left-right polynomially inequivalent Keller
+counterexamples $\C^3\to\C^3$, all having generic degree six.
+\end{theoremB}
+
+\begin{formalresult}
+In the pinned Lean environment, for every nonzero $h\in\C[T]$,
+\[
+ \operatorname{NonpropernessSet}(F_h)
+ =D_h\cup V\bigl(p^6h(p)\bigr),
+ \qquad
+ \#\Irr(S_{F_h})
+ =2+\#\{\alpha\in\C^\times:h(\alpha)=0\}.
+\]
+The polynomial model has Jacobian determinant $-2$, genuine function-field
+generic degree six, and no polynomial inverse.  The parameter-free Lean
+\texttt{theoremA} gives the two explicit counts and their polynomial
+left-right inequivalence; \texttt{theoremB} gives the infinite, pairwise
+inequivalent product family with count $m+2$.
+\end{formalresult}
+
+The universal component formula is
+\[
+ \#\Irr(S_{F_h})
+ =2+\#\{\alpha\in\C^\times:h(\alpha)=0\},
+\]
+where distinct roots are counted without multiplicity.  The cases of constant
+$h$, a root at zero, repeated roots, and the empty product in the infinite
+family are included in the theorem as stated.
+
+\section{Proof route}
+
+\subsection{Shape and mathematical material}
+
+The central claim is an equality of reduced algebraic sets.  The human proof
+uses double inclusion, followed by an irreducible-component count.  It combines
+exact polynomial identities, a rational parametrization, elementary properness
+and covering arguments, and irreducibility of an image closure.  The final
+polynomial inequivalence statement is obtained from invariance of the
+component count.
+
+The completed Lean proof follows the universal route described by the human
+argument, with every topological transition made explicit.  It reifies $F_h$
+as a polynomial coordinate map and computes the formal Jacobian determinant.
+It defines generic degree as an actual intermediate-field finrank and obtains
+degree six through the inverse generator and a rational-function field model.
+For nonproperness, it combines Keller local homeomorphisms, local properness,
+covering-space monodromy, dense good targets with exactly six simple inverse
+roots, and an \texttt{encard} bound of at most three on the leading locus.
+Exact eliminants and mathlib's genuine \texttt{irreducibleComponents} then
+close the reduced-set equality and component formula.  No numerical or
+external CAS result is imported as a hypothesis.
+
+\subsection{Proof obligations and their closure}
+
+\begin{enumerate}
+ \item reify the point map as \texttt{FhPolynomial} and prove its exact
+       evaluation bridge;
+ \item compute the family-wide formal Jacobian determinant as the constant
+       polynomial $-2$;
+ \item define function-field generic degree as a finrank, prove it is six for
+       nonzero $h$, and prove polynomial automorphisms have degree one;
+ \item derive the inverse-root equation and reconstruction identities;
+ \item prove the finite critical image and its closure are irreducible,
+       hypersurface, dimension two, dominant, and nonvertical;
+ \item prove local fiber constancy away from nonproperness using proper
+       restricted Keller coverings and monodromy;
+ \item meet each such neighborhood with the dense good-target set and transport
+       the exact six-point fiber count;
+ \item prove every leading-locus fiber is finite with \texttt{encard} at most
+       three, forcing fiber loss and nonproperness;
+ \item combine this reverse inclusion with universal asymptotic exclusion and
+       exact eliminants to obtain the reduced-set equality;
+ \item identify and count the genuine irreducible components, with repeated
+       roots discarded and the zero root handled once; and
+ \item specialize to the explicit product family and transport component count
+       through polynomial left-right equivalence.
+\end{enumerate}
+
+Items 1--11 are kernel-checked for every nonzero deformation polynomial.  The
+two parameter-free paper theorems are direct assemblies of these endpoints.
+
+\subsection{Representation and library audit}
+
+Euclidean complex affine space is represented by
+\texttt{C3 := Fin 3 -> Complex}.  Its affine-Zariski topology is constructed
+on the separate type synonym \texttt{ZariskiC3}, preventing accidental mixing
+of analytic and algebraic topologies.  The invariant
+\texttt{algebraicComponentCount} is defined as the cardinality of mathlib's
+actual \texttt{irreducibleComponents} of the corresponding Zariski subspace.
+
+The finite component is the Zariski closure of a structured critical image.
+The source of the critical map is the principal open $s\ne0$ in affine
+$2$-space.  A reusable principal-open regular-map layer proves the critical
+map Zariski-continuous and its image irreducible.  The universal eliminant
+identifies its closure with one nonzero-polynomial zero locus, proves
+nonverticality and dominance, and supports the exact topological Krull
+dimension computation.  The analytic modules connect the same locus to the
+sequence-defined Euclidean nonproperness set.  Section~D records the exact
+module boundaries and endpoint declarations.
+
+\section{Human proof}
+
+\subsection{The degree-six subfamily}
+
+Set
+\[
+ A=1+xy,
+ \qquad
+ B=A^2z+y^2(4+3xy),
+ \qquad
+ P=AB,
+\]
+and
+\[
+ Q=y+3xB,
+ \qquad
+ R=2x-3x^2y-x^3z.
+\]
+Fix $h\in\C[T]\setminus\{0\}$.  In Theorem 5.2 of \cite{source}, take
+$\eta_4=h$ and $\eta_j=0$ for $j\ne4$.  The resulting map is
+\[
+ F_h=(P,Q_h,R_h),
+\]
+where
+\[
+ Q_h=Q+A^2x^4B^6h(P),
+ \qquad
+ R_h=R-\frac23x^6B^6h(P).
+\]
+
+On the dense chart $A\ne0$, put $s=x/A$.  If
+$(p,q,r)=F_h(x,y,z)$, define
+\[
+ \phi_h(p,s)=3ps+p^6h(p)s^4,
+ \qquad
+ \theta_h(p,s)=ps^3+\frac23p^6h(p)s^6.
+\]
+Then
+\[
+ q=y+\phi_h(p,s),
+ \qquad
+ r=2s-ys^2-\theta_h(p,s).
+\]
+Eliminating $y=q-\phi_h(p,s)$ gives
+\begin{equation}
+ \boxed{
+ \Omega_{p,q,r}(s)
+ =a_h(p)s^6+2ps^3-qs^2+2s-r=0,
+ \qquad
+ a_h(p)=\frac13p^6h(p).}
+ \label{eq:omega}
+\end{equation}
+Moreover,
+\begin{equation}
+ \frac{\partial\Omega}{\partial s}
+ =2\bigl(1-s(q-\phi_h(p,s))\bigr).
+ \label{eq:derivative}
+\end{equation}
+Writing
+\[
+ D=1-s(q-\phi_h(p,s))=1-sy,
+\]
+a finite root is simple exactly when $D\ne0$.  For such a root, the
+corresponding source point is
+\begin{equation}
+ y=q-\phi_h(p,s),
+ \qquad
+ x=\frac{s}{D},
+ \qquad
+ z=pD^3-y^2(4-sy)D.
+ \label{eq:reconstruction}
+\end{equation}
+Indeed, these expressions give $A=D^{-1}$ and $B=pD$, and hence
+$F_h(x,y,z)=(p,q,r)$.
+
+\begin{lemma}[Keller property and generic degree]
+\label{lem:keller-degree}
+For every nonzero $h$, the map $F_h$ satisfies
+\[
+ \det JF_h=-2,
+ \qquad
+ \mu(F_h)=6.
+\]
+\end{lemma}
+
+\begin{proof}
+First observe that
+\[
+ \partial_s\theta_h=s^2\partial_s\phi_h.
+\]
+In the coordinates $(P,y,s)$, this gives
+\[
+ \det\frac{\partial(P,Q_h,R_h)}{\partial(P,y,s)}
+ =2-2ys-\partial_s\theta_h+s^2\partial_s\phi_h
+ =2(1-ys)=\frac{2}{A}.
+\]
+On the other hand,
+\[
+ \det\frac{\partial(P,y,s)}{\partial(x,y,z)}=-A.
+\]
+For completeness, $P_z=A^3$ and $s_x=A^{-2}$ with $y$ fixed, so expansion
+along the $y$-row gives the displayed determinant.  Thus $\det JF_h=-2$ on
+$A\ne0$.  Both sides are polynomial functions, so the identity holds on all
+of $\C^3$.
+
+Now let $K=\C(p,q)$.  Equation \eqref{eq:omega} has the form
+\[
+ f_{p,q}(s)-r=0,
+ \qquad
+ f_{p,q}(S)=a_h(p)S^6+2pS^3-qS^2+2S.
+\]
+Because $h\ne0$, the element $a_h(p)$ is nonzero in $K$, so $f_{p,q}$ has
+degree six.  The polynomial $T-f_{p,q}(S)$ generates a prime ideal of
+$K[S,T]$, since the quotient by that ideal is $K[S]$.  It is therefore
+irreducible in $K[S,T]$, and Gauss's lemma makes $f_{p,q}(S)-r$ irreducible
+in $K(r)[S]$.  Finally, \eqref{eq:reconstruction} gives
+\[
+ \C(x,y,z)=\C(p,q,r)(s).
+\]
+Consequently the induced function-field extension has degree six, so
+$\mu(F_h)=6$.
+\end{proof}
+
+\subsection{Elementary facts about nonproperness}
+
+\begin{lemma}[Closedness]
+\label{lem:closed}
+For every polynomial map $G:\C^n\to\C^n$, the set $S_G$ is closed in the
+Euclidean topology.
+\end{lemma}
+
+\begin{proof}
+Suppose $b\notin S_G$.  Then there are $R>0$ and $\varepsilon>0$ such that
+\[
+ \lVert u\rVert>R
+ \quad\Longrightarrow\quad
+ \lVert G(u)-b\rVert\ge\varepsilon.
+\]
+Otherwise one could choose $u_k$ with $\lVert u_k\rVert>k$ and
+$\lVert G(u_k)-b\rVert<1/k$, contradicting $b\notin S_G$.  Every point
+within $\varepsilon/2$ of $b$ obeys the same conclusion with
+$\varepsilon/2$.  Thus the complement of $S_G$ is open.
+\end{proof}
+
+\begin{lemma}[Fiber loss forces nonproperness]
+\label{lem:fiber-loss}
+Let $G:\C^n\to\C^n$ be a Keller map of generic degree $d$.  If
+$b\notin S_G$, then
+\[
+ \#G^{-1}(b)=d.
+\]
+Equivalently, any target whose fiber contains fewer than $d$ points lies in
+$S_G$.
+\end{lemma}
+
+\begin{proof}
+If $b\notin S_G$, the argument in Lemma \ref{lem:closed} gives a connected
+neighborhood $U$ of $b$ over which $G$ is proper.  Since $G$ is Keller, it is
+a local biholomorphism.  Its image in $U$ is open, and properness makes that
+image closed.  The neighborhood $U$ intersects the Zariski-open dense set of
+targets having generic fiber cardinality $d$, so the image is nonempty.
+Connectedness of $U$ therefore makes the map surjective.  A proper surjective
+local biholomorphism is a finite covering map, so its fiber cardinality is
+constant on $U$.  Since that cardinality equals $d$ at a generic target, it
+equals $d$ over $b$.
+\end{proof}
+
+\subsection{The finite-multiple-root component}
+
+Let $D_h$ be the Zariski closure of the targets for which
+\eqref{eq:omega} has a finite multiple root.  Since
+\[
+ \partial_s\Omega_{p,q,r}(0)=2,
+\]
+such a root is never zero.  Solving $\Omega=\partial_s\Omega=0$ for $q$ and
+$r$ gives
+\begin{equation}
+ \boxed{
+ \begin{aligned}
+ \Psi_h:\A^1_p\times\mathbb{G}_{m,s}&\longrightarrow\A^3_{p,q,r},\\
+ (p,s)&\longmapsto
+ \left(
+ p,
+ p^6h(p)s^4+3ps+\frac1s,
+ s-ps^3-\frac23p^6h(p)s^6
+ \right).
+ \end{aligned}}
+ \label{eq:parametrization}
+\end{equation}
+
+\begin{lemma}
+\label{lem:irreducible}
+The variety $D_h$ is an irreducible hypersurface.  It dominates the $p$-line,
+is distinct from every vertical hyperplane $V(p-\alpha)$, and contains no
+vertical hyperplane.
+\end{lemma}
+
+\begin{proof}
+The domain $\A^1\times\Gm$ of $\Psi_h$ is irreducible, so the closure of its
+image is irreducible.  Its dimension is two: the first target coordinate is
+$p$, and
+\[
+ \frac{\partial q}{\partial s}
+ =4p^6h(p)s^3+3p-\frac1{s^2}
+\]
+is not identically zero.  Hence the differential of $\Psi_h$ has rank two on
+a nonempty Zariski-open subset.  By the characteristic-zero dimension theorem
+for images, the closure $D_h$ has dimension two.  It is therefore an
+irreducible surface in $\A^3$, hence an irreducible hypersurface.
+
+The first coordinate of $\Psi_h(p,s)$ is the freely varying parameter $p$, so
+$D_h$ dominates the $p$-line.  A vertical hyperplane does not dominate the
+$p$-line, and therefore cannot equal $D_h$.  Finally, if a vertical
+hyperplane $H_\alpha=V(p-\alpha)$ were contained in $D_h$, then the two
+irreducible closed sets $H_\alpha$ and $D_h$ would have the same dimension
+(two).  A proper inclusion of irreducible closed subsets strictly lowers
+dimension, so the inclusion would force $H_\alpha=D_h$, contradicting the
+preceding paragraph.  Thus no vertical hyperplane is contained in $D_h$.
+\end{proof}
+
+\subsection{The reduced nonproperness theorem}
+
+\begin{theorem}
+\label{thm:nonproperness}
+For every nonzero $h\in\C[T]$,
+\begin{equation}
+ \boxed{
+ S_{F_h}=D_h\cup V(a_h)
+ =D_h\cup V\bigl(p^6h(p)\bigr)}
+ \label{eq:nonproperness}
+\end{equation}
+as reduced algebraic sets.
+\end{theorem}
+
+\begin{proof}
+We prove both inclusions.
+
+\smallskip
+\emph{First inclusion: $S_{F_h}\subseteq D_h\cup V(a_h)$.}
+Take $b_0=(p_0,q_0,r_0)\notin D_h\cup V(a_h)$.  Then
+$a_h(p_0)\ne0$, and $\Omega_{b_0}$ is a degree-six polynomial with six
+simple finite roots.  Choose a sufficiently small compact target neighborhood
+$K$ of $b_0$ disjoint from $D_h\cup V(a_h)$.  On $K$, the leading coefficient
+$a_h(p)$ stays bounded away from zero.  The coefficients of $\Omega$ remain
+bounded, so the usual polynomial root bound places every root in one fixed
+compact disk.
+
+The incidence set
+\[
+ \mathcal I_K=
+ \{(b,s)\in K\times\C:\Omega_b(s)=0\}
+\]
+is therefore compact.  No point of $\mathcal I_K$ satisfies
+$\partial_s\Omega=0$, because $K\cap D_h=\varnothing$.  Hence, by
+\eqref{eq:derivative}, $|D|$ has a positive minimum on $\mathcal I_K$.
+Formula \eqref{eq:reconstruction} then shows that all corresponding source
+points are uniformly bounded.
+
+There are no additional source points on $A=0$: that equation forces $P=0$,
+whereas $p$ stays away from zero on $K$.  Consequently $F_h^{-1}(K)$ is
+compact, and $b_0\notin S_{F_h}$.  This proves the first inclusion.
+
+\smallskip
+\emph{Second inclusion, finite component: $D_h\subseteq S_{F_h}$.}
+Let $(p,q,r)=\Psi_h(p,t)$, where $t\ne0$.  For $\varepsilon\ne0$, set
+\[
+ y_\varepsilon=\frac{1-\varepsilon}{t},
+ \qquad
+ x_\varepsilon=\frac{t}{\varepsilon},
+ \qquad
+ z_\varepsilon
+ =p\varepsilon^3-y_\varepsilon^2(4-ty_\varepsilon)\varepsilon.
+\]
+Then $A=\varepsilon^{-1}$ and $s=t$.  Direct substitution gives
+\[
+ F_h(x_\varepsilon,y_\varepsilon,z_\varepsilon)
+ =\left(p,q-\frac{\varepsilon}{t},r+\varepsilon t\right)
+ \longrightarrow(p,q,r).
+\]
+At the same time, $|x_\varepsilon|=|t/\varepsilon|\to\infty$.  Thus every
+point in the image of $\Psi_h$ belongs to $S_{F_h}$.  The image of $\Psi_h$
+is constructible and Zariski dense in $D_h$; hence it contains a Zariski-open
+dense subset of $D_h$, which is also Euclidean dense.  Lemma
+\ref{lem:closed} now gives $D_h\subseteq S_{F_h}$.
+
+\smallskip
+\emph{Second inclusion, vertical components: $V(a_h)\subseteq S_{F_h}$.}
+The distinct roots of $a_h(p)=\frac13p^6h(p)$ are $0$ together with the
+distinct nonzero roots of $h$.  Fix one such root $\alpha$, and consider a
+generic target on $H_\alpha=V(p-\alpha)$ outside $D_h$.
+
+If $\alpha\ne0$, then $h(\alpha)=0$, and \eqref{eq:omega} specializes to
+\[
+ 2\alpha s^3-qs^2+2s-r=0.
+\]
+For a target outside $D_h$, this cubic has three simple roots.
+Equation \eqref{eq:reconstruction} gives exactly three source points with
+$A\ne0$.  There are no source points with $A=0$, because $A=0$ forces
+$P=0\ne\alpha$.  Hence the fiber has three points.
+
+If $\alpha=0$, then, for generic $q\ne0$, equation \eqref{eq:omega} becomes
+\[
+ -qs^2+2s-r=0.
+\]
+Outside $D_h$, it has two simple finite roots and hence gives two source
+points with $A\ne0$.  There is exactly one further source point on $A=0$.
+Indeed, $A=0$ implies $xy=-1$, $B=y^2$, and $P=0$.  Moreover,
+\[
+ Q_h=-2y,
+ \qquad
+ R_h=5x-x^3z-\frac23y^6h(0).
+\]
+Thus, when $q\ne0$,
+\[
+ y=-\frac q2,
+ \qquad
+ x=\frac2q,
+ \qquad
+ z=\frac{5x-\frac23y^6h(0)-r}{x^3},
+\]
+which is one and only one point.  The generic fiber over $H_0$ therefore also
+has three points.
+
+By Lemma \ref{lem:keller-degree}, $F_h$ has generic degree six.  Lemma
+\ref{lem:fiber-loss} now implies that every target in these generic open
+subsets of the vertical hyperplanes lies in $S_{F_h}$, because its fiber has
+only three points.  Each such open subset is Euclidean dense in its
+hyperplane: Lemma \ref{lem:irreducible} ensures that $D_h$ contains no
+vertical hyperplane.  Since $S_{F_h}$ is closed by Lemma \ref{lem:closed},
+every vertical hyperplane $H_\alpha$ is contained in $S_{F_h}$.
+
+This proves $V(a_h)\subseteq S_{F_h}$ and completes
+\eqref{eq:nonproperness}.
+\end{proof}
+
+
+\subsection{Earlier pair-specific explicit asymptotic witnesses}
+\label{subsec:explicit-witnesses}
+
+An earlier accepted checkpoint established the two concrete vertical loci by
+explicit escaping inverse-root branches.  Those witnesses remain useful
+independent checks, but the final universal theorem uses the fiber-loss route:
+local proper Keller coverings have locally constant finite fibers, dense good
+targets have exactly six simple inverse roots, and every leading-locus fiber
+has cardinality at most three.  The explicit pair witnesses are recorded here
+because they give a second proof for the two original examples.
+
+For the common component $p=0$, let $\varepsilon\to0$, put
+\[
+ s_\varepsilon=\varepsilon^{-5},
+ \qquad
+ d(q)=-\frac{q}{10},
+ \qquad
+ w_\varepsilon=c+d(q)\varepsilon^2,
+ \qquad
+ p_\varepsilon=\varepsilon^3w_\varepsilon,
+\]
+and choose
+\[
+ c^5=-6 \quad\text{for CEX-004},
+ \qquad
+ c^5=4 \quad\text{for CEX-006}.
+\]
+For a prescribed target $(0,q,r)$ define
+\[
+ q_\varepsilon
+ =a_h(p_\varepsilon)s_\varepsilon^4
+   +2p_\varepsilon s_\varepsilon
+   +\frac{2}{s_\varepsilon}
+   -\frac{r}{s_\varepsilon^2}.
+\]
+Then $s_\varepsilon$ is an exact root of
+$\Omega_{p_\varepsilon,q_\varepsilon,r}$.  The cancellation conditions on
+$c$ give
+\[
+ p_\varepsilon\longrightarrow0,
+ \qquad
+ q_\varepsilon\longrightarrow q.
+\]
+The evaluated derivative is eventually nonzero, so the checked reconstruction
+map produces exact source points mapping to
+$(p_\varepsilon,q_\varepsilon,r)$.  Moreover the reconstructed second source
+coordinate satisfies
+\[
+ y_\varepsilon\varepsilon^2\longrightarrow3c\ne0,
+\]
+and hence the sources escape.  This proves the entire hyperplane $p=0$ is
+contained in each pair-specific nonproperness set.  It corrects the tempting
+but insufficient direct $A=0$ family, which approaches only the line
+$(p,q)=(0,0)$.
+
+For the additional CEX-004 hyperplane, set $\alpha=-\frac14$ and let
+$s\to\infty$.  For a prescribed target $(\alpha,q,r)$ define
+\[
+ p_s=\alpha+\frac{1536}{s^3}+\frac{3072q}{s^4},
+ \qquad
+ q_s=a_{004}(p_s)s^4+2p_ss+\frac2s-\frac{r}{s^2}.
+\]
+Again $s$ is an exact root of $\Omega_{p_s,q_s,r}$, and the checked limits are
+\[
+ p_s\longrightarrow-\frac14,
+ \qquad
+ q_s\longrightarrow q,
+ \qquad
+ s^{-2}\Omega'_{p_s,q_s,r}(s)\longrightarrow\frac32,
+ \qquad
+ s^{-1}y_s\longrightarrow-\frac34.
+\]
+Thus the root is eventually simple, reconstruction is exact, and the source
+sequence escapes.  Consequently the whole hyperplane $p=-\frac14$ lies in
+$S_{004}$.
+
+The formal forward inclusion uses the inverse chart rather than a compact
+neighborhood argument.  If $F_h(u_n)\to b$ and $a_h(b_0)\ne0$, then eventually
+$A(u_n)\ne0$ and the chart roots
+$s_n=x_n/A(u_n)$ satisfy the inverse equation.  A direct Cauchy-type estimate
+bounds $s_n$; after passage to a convergent subsequence, a nonzero limiting
+derivative would make the reconstructed sources converge, contradicting
+escape.  The limiting root is therefore multiple and nonzero, so $b$ lies in
+the finite critical image, hence in $D_h$.  Lean proves the universal inclusion
+\[
+ \operatorname{NonpropernessSet}(F_h)
+ \subseteq D_h\cup V(a_h)
+\]
+for every deformation polynomial $h$.
+
+To pass from the directly parametrized critical image to its Zariski closure
+for the two examples, Lean does not infer Euclidean closure from Zariski
+closure.  Instead it verifies exact elimination certificates.  Two Euclidean
+remainder identities reduce $\Omega$ and $\Omega'$ to a cubic $H_3$ and a
+quadratic $H_2$, and the fixed $5\times5$ Sylvester determinant gives
+\[
+ \operatorname{Res}(H_3,H_2)
+ =27p^{10}\delta_{004}(p,q,r)
+\]
+for CEX-004 and
+\[
+ \operatorname{Res}(H_3,H_2)
+ =-\frac{243}{8}p^{10}\delta_{006}(p,q,r)
+\]
+for CEX-006.  Off the leading locus, vanishing of the pair-specific factor
+produces a common finite root of $\Omega$ and $\Omega'$, hence a point of the
+critical image.  On the leading locus, the explicit vertical branches above
+already give nonproperness.  This closes the full reverse inclusions
+$D_{004}\subseteq S_{004}$ and $D_{006}\subseteq S_{006}$ inside Lean.
+
+\subsection{Component count}
+
+\begin{corollary}[General component formula]
+\label{cor:count}
+For every nonzero $h\in\C[T]$,
+\begin{equation}
+ \boxed{
+ \#\Irr(S_{F_h})
+ =2+\#\{\alpha\in\C^\times:h(\alpha)=0\}.}
+ \label{eq:count}
+\end{equation}
+The roots are counted without multiplicity.
+\end{corollary}
+
+\begin{proof}
+As a reduced set,
+\[
+ V(p^6h(p))
+ =V(p)\cup
+ \bigcup_{\substack{\alpha\in\C^\times\\h(\alpha)=0}}V(p-\alpha).
+\]
+These vertical hyperplanes are irreducible and pairwise distinct.  Lemma
+\ref{lem:irreducible} says that $D_h$ is irreducible, is not contained in any
+vertical hyperplane, and contains no vertical hyperplane.  Hence the displayed
+finite union is irredundant.  Theorem \ref{thm:nonproperness} therefore
+decomposes $S_{F_h}$ into exactly one finite-multiple-root component, one
+component $V(p)$, and one component for every distinct nonzero root of $h$.
+\end{proof}
+
+\subsection{CEX-004 versus CEX-006}
+
+For CEX-004,
+\[
+ h_{004}(T)=1+4T.
+\]
+It has the single nonzero root $-\frac14$.  Hence
+\[
+ S_{004}=D_{004}\cup V(p)\cup V(1+4p),
+ \qquad
+ \#\Irr(S_{004})=3.
+\]
+For CEX-006,
+\[
+ h_{006}(T)=-\frac32.
+\]
+It has no roots.  Hence
+\[
+ S_{006}=D_{006}\cup V(p),
+ \qquad
+ \#\Irr(S_{006})=2.
+\]
+
+\begin{lemma}[Left-right invariance]
+\label{lem:invariance}
+If $G=L\circ F\circ R$, where $L$ and $R$ are polynomial automorphisms of
+$\C^n$, then
+\[
+ S_G=L(S_F).
+\]
+\end{lemma}
+
+\begin{proof}
+A polynomial automorphism is proper because its inverse is continuous and
+maps compact sets to compact sets.  Consequently a sequence $u_k$ escapes to
+infinity if and only if $R(u_k)$ escapes to infinity.  Also,
+\[
+ G(u_k)\to b
+ \quad\Longleftrightarrow\quad
+ F(R(u_k))\to L^{-1}(b).
+\]
+The defining sequence condition for nonproperness therefore gives
+$b\in S_G$ if and only if $L^{-1}(b)\in S_F$.
+\end{proof}
+
+An algebraic automorphism maps irreducible components bijectively.  Thus
+left-right equivalent maps have nonproperness sets with the same number of
+irreducible components.  The counts $3$ and $2$ are different, so CEX-004
+and CEX-006 are not left-right polynomially equivalent.  This proves
+Theorem A.
+
+\subsection{The infinite family}
+
+For $m\ge0$, define
+\[
+ h_m(T)=\prod_{i=1}^{m}(T-i),
+\]
+where the empty product $h_0$ is $1$.  The polynomial $h_m$ has exactly $m$
+distinct nonzero roots.  Lemma \ref{lem:keller-degree} gives
+\[
+ \det JF_{h_m}=-2,
+ \qquad
+ \mu(F_{h_m})=6.
+\]
+In particular, $F_{h_m}$ is a Keller map but not a polynomial automorphism,
+because an automorphism has generic degree one.  Thus every $F_{h_m}$ is a
+Keller counterexample.  Corollary \ref{cor:count} gives
+\[
+ \#\Irr(S_{F_{h_m}})=m+2.
+\]
+If $m\ne n$, these component counts differ, so Lemma \ref{lem:invariance}
+rules out a left-right polynomial equivalence between $F_{h_m}$ and
+$F_{h_n}$.  The family $\{F_{h_m}\}_{m\ge0}$ is therefore infinite, pairwise
+inequivalent, and has constant generic degree six.  This proves Theorem B.
+
+\section{Lean 4 formalization}
+
+\subsection{Pinned environment and reproducible audit}
+
+The project is pinned by
+\[
+ \texttt{leanprover/lean4:v4.32.2}
+\]
+and mathlib commit
+\[
+ \texttt{905b95818eb32af7874a58b427f50c1711a5e96c}.
+\]
+The PowerShell entry point \texttt{build\_and\_audit.ps1} verifies the exact
+toolchain pin, resolves that pinned Lake executable directly, builds the
+umbrella and axiom-audit targets, scans the project Lean sources for
+\texttt{axiom}, \texttt{sorry}, or \texttt{admit}, parses every
+\texttt{\#print axioms} report, and fails on missing, duplicate, unexpected,
+or non-whitelisted results.  It performs no dependency update or cache
+download.
+
+The immutable CP-07 replay reported
+\begin{lstlisting}[language={}]
+Build completed successfully (3507 jobs).
+AXIOM_WHITELIST_PASSED (92 reports)
+BUILD_AND_AUDIT_PASSED
+\end{lstlisting}
+Every audited endpoint reported only
+\[
+ \texttt{propext},\qquad
+ \texttt{Classical.choice},\qquad
+ \texttt{Quot.sound}.
+\]
+The CP-07 formal-input manifest contains 53 verified entries.  After the final
+paper and documentation synchronization, the release manifest is regenerated
+and reverified before packaging.
+
+\subsection{Module map}
+
+The root module has 32 direct runtime imports.  There are 48 submodules under
+\texttt{DegreeSixKeller/}: 33 non-Spike modules and 15 Spike-named modules.
+The separate \texttt{AxiomAudit} imports the umbrella and is compiled as a
+second target.  Two historically named support modules,
+\texttt{FunctionFieldSpike} and \texttt{GenericDegreeGeneratorSpike}, remain
+live dependencies of the generic-degree layer; the other 13 Spike modules are
+outside the production closure and retained as proof-development evidence.
+
+\begin{longtable}{>{\raggedright\arraybackslash\ttfamily}p{0.34\textwidth}>{\raggedright\arraybackslash}p{0.60\textwidth}}
+\toprule
+Module & Kernel-checked content \\
+\midrule
+\endfirsthead
+\toprule
+Module & Kernel-checked content \\
+\midrule
+\endhead
+FetaCore, InverseChart & Point maps, inverse polynomial, exact chart,
+derivative, reconstruction, and leading-coefficient locus. \\
+PolynomialModel, JacobianKeller & Polynomial coordinate triples, exact
+evaluation bridge, formal Jacobian, determinant $-2$, and Keller certificate. \\
+FunctionFieldSpike, GenericDegreeGenerator\-Spike, GenericDegree & Source and
+coordinate function fields, inverse generator, rational-function transport,
+and genuine finrank-six theorem. \\
+PolynomialAutomorphism, GenericDegreeAutomorphism & Polynomial inverse data,
+left-right bridge, automorphism degree one, and nonautomorphism of every
+nonzero family member. \\
+AffineZariski, ComponentCounting & Affine-Zariski topology and exact component
+counting through mathlib's \texttt{irreducibleComponents}. \\
+CriticalImageGeometry, GeneralFiniteGeometry, FiniteComponentDimension &
+Universal critical image, exact eliminant zero locus, irreducibility,
+hypersurface, dominance, nonverticality, and topological Krull dimension two. \\
+KellerLocalHomeomorph, FiberLoss & Keller local homeomorphisms, compact local
+restrictions, proper coverings, monodromy, and locally constant fiber size. \\
+GenericFiberSix, GoodTargetDensity & Exact six-point fibers on a dense set of
+simple-root targets. \\
+LeadingFiberBounds & Finiteness and \texttt{encard} at most three on the
+complete leading locus, including $p=0$. \\
+AsymptoticExclusion, GeneralNonproperness & Universal forward inclusion,
+fiber-loss reverse inclusion, and exact reduced nonproperness equality. \\
+GeneralComponents & Distinct nonzero-root indexing, edge cases, exact
+irreducible-component Finsets, and the formula
+$2+\#\{\alpha\ne0:h(\alpha)=0\}$. \\
+InfiniteFamily & Product parameters, exact roots and counts, Keller/degree-six
+certificates, infinite range, and pairwise polynomial inequivalence. \\
+Pair-specific legacy modules & Independent explicit escape/resultant proofs
+for CEX-004 and CEX-006 and their original component-count contradiction. \\
+MainTheorems & Parameter-free Lean declarations \texttt{theoremA} and
+\texttt{theoremB}. \\
+AxiomAudit & The 92 public \texttt{\#print axioms} probes used by the enforced
+trust audit. \\
+\bottomrule
+\end{longtable}
+
+\subsection{Exact checked endpoint declarations}
+
+Representative completed declarations are:
+\begin{lstlisting}[language={}]
+theorem Fh_jacobianDet (h : Complex[X]) :
+    jacobianDet (FhPolynomial h) = MvPolynomial.C (-2)
+
+theorem Fh_genericDegree_six (h : Complex[X]) (hh : Not (h = 0)) :
+    genericDegree (FhPolynomial h) = 6
+
+theorem Fh_reducedNonpropernessEquality
+    (h : Complex[X]) (hh : Not (h = 0)) :
+    NonpropernessSet (Fh h) = generalReducedCandidate h
+
+theorem Fh_componentCount (h : Complex[X]) (hh : Not (h = 0)) :
+    algebraicComponentCount (NonpropernessSet (Fh h)) =
+      2 + (nonzeroRoots h).card
+
+theorem hFamily_componentCount (m : Nat) :
+    algebraicComponentCount
+      (NonpropernessSet (Fh (hFamily m))) = m + 2
+
+#check DegreeSixKeller.theoremA
+#check DegreeSixKeller.theoremB
+\end{lstlisting}
+Here \texttt{generalReducedCandidate h} expands to the finite component union
+the zero locus of $p^6h(p)$.  The pair specializations recover
+\[
+ \operatorname{NonpropernessSet}(F_{004})
+ =\operatorname{finiteComponent}(\eta_{004})
+   \cup\operatorname{pHyperplane}(0)
+   \cup\operatorname{pHyperplane}\!\left(-\frac14\right)
+\]
+and
+\[
+ \operatorname{NonpropernessSet}(F_{006})
+ =\operatorname{finiteComponent}(\eta_{006})
+   \cup\operatorname{pHyperplane}(0).
+\]
+The declaration \texttt{theoremA} additionally packages the two Keller,
+generic-degree-six, and nonautomorphism certificates.  The declaration
+\texttt{theoremB} quantifies over every $m$, packages count $m+2$, and proves
+both literal infinitude of the range and pairwise polynomial left-right
+inequivalence on that range.  Neither declaration has a theorem parameter or
+an unproved geometric hypothesis.
+
+\subsection{From pair closure to the universal theorem}
+
+The two irreducibility obligations are closed by treating the critical
+parametrization as a regular map on the principal open $D(s)$ in affine
+$2$-space.  That domain is a nonempty open subset of irreducible affine space;
+its continuous image is irreducible, and the closure remains irreducible.
+
+The two nonverticality obligations are closed by the exact elimination factors
+$\delta_{004}$ and $\delta_{006}$.  Each finite component lies in the
+corresponding zero locus.  On every slice $p=\alpha$, $r=0$, the resulting
+univariate polynomial in $q$ has a fixed nonzero quadratic coefficient:
+$-243$ for CEX-004 and $216$ for CEX-006.  Hence every vertical hyperplane
+contains a point outside that zero locus and cannot lie inside the finite
+component.
+
+The earlier two reduced-set equalities are closed by combining:
+\begin{enumerate}
+ \item explicit escaping sequences for the critical image and all pair-specific
+       vertical components;
+ \item the exact reduced-resultant bridge from the finite Zariski closure back
+       to a common inverse root off the leading locus; and
+ \item the asymptotic-exclusion theorem proving that no other escaping limit is
+       possible.
+\end{enumerate}
+This is a direct formal proof of both inclusions, not a theorem parameter or an
+imported geometric certificate.
+
+The final family-wide reverse inclusion uses the accepted fiber-loss argument,
+not an unavailable blanket identification of arbitrary fibers with
+function-field finrank.  Away from the nonproperness set, local properness and
+the Keller local-homeomorphism theorem produce a finite covering over a target
+ball.  Monodromy makes its fiber cardinality constant.  Density supplies a
+good target in that ball with six simple inverse roots, so the original fiber
+also has six points.  On the leading locus, the algebraic analysis proves
+finiteness and \texttt{encard} at most three; hence those targets must be
+nonproper.  This covers $p=0$, nonzero roots, repeated roots, and constants.
+
+\subsection{Human-to-Lean correspondence}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash\bfseries}p{0.36\textwidth}X}
+\toprule
+Human proof step & Formal status \\
+\midrule
+Coordinate definitions and inverse polynomial & Checked exactly. \\
+Polynomial coordinate model and exact evaluation bridge & Checked for every
+$h$. \\
+Jacobian determinant $-2$ & Checked for every $h$. \\
+Generic degree six & Checked for every nonzero $h$ using a genuine
+function-field finrank. \\
+Polynomial automorphisms have generic degree one & Checked; consequently every
+nonzero family member is nonautomorphic. \\
+Closedness of $S_G$ & Checked for the sequence-defined
+\texttt{NonpropernessSet}. \\
+Fiber-loss theorem & Checked through local proper Keller coverings, monodromy,
+dense good targets, and exact six-point fibers. \\
+Inverse chart, derivative, and reconstruction & Checked exactly, including
+exact mapping from every finite simple root and reconstruction of every source
+point on $A\ne0$. \\
+Critical-image irreducibility and closure irreducibility & Checked for every
+deformation polynomial $h$. \\
+Critical image contained in nonproperness & Checked by the explicit
+$\varepsilon$-escape family. \\
+Complete leading locus & Checked by finite fiber bounds with
+\texttt{encard} at most three, including the entire $p=0$ hyperplane. \\
+$S_{F_h}\subseteq D_h\cup V(a_h)$ & Checked universally for every $h$ by root
+bounds, subsequence extraction, and reconstruction contradiction. \\
+$D_h\cup V(a_h)\subseteq S_{F_h}$ & Checked for every nonzero $h$ by the
+fiber-loss route. \\
+Finite-component geometry & Closed, irreducible, exact hypersurface,
+topological Krull dimension two, dominant, and contains no vertical
+hyperplane. \\
+Universal irreducible-component formula & Checked using actual
+\texttt{irreducibleComponents}. \\
+Left-right transport of nonproperness & Checked for homeomorphisms with
+explicit escape preservation. \\
+Component-count invariance & Checked for a target map equipped with a
+compatible affine-Zariski homeomorphism. \\
+Polynomial automorphisms supply those data & Checked through polynomial
+forward/inverse coordinate data and the induced Euclidean and affine-Zariski
+homeomorphisms. \\
+Final $3\ne2$ contradiction in the formal interface & Checked
+unconditionally. \\
+Explicit product family and count $m+2$ & Checked, including the empty product,
+exact distinct roots, infinite range, and pairwise inequivalence. \\
+Parameter-free Theorems A and B & Checked unconditionally. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Axiom, hole, and integrity audit}
+
+The audited public declarations report only
+\[
+ \texttt{propext},\qquad
+ \texttt{Classical.choice},\qquad
+ \texttt{Quot.sound}.
+\]
+These are ordinary Lean/mathlib foundational dependencies, not
+project-specific mathematical assumptions.  The use of
+\texttt{Classical.choice} is visible in constructions such as chosen fifth
+roots, chosen principal-open pullback data, and noncomputable component
+counts.  The source scan found no project-local \texttt{axiom},
+\texttt{sorry}, or \texttt{admit}.  No CAS output, floating-point computation,
+or numerical resultant is trusted: the polynomial and determinant identities
+are elaborated and checked by Lean.
+
+The final \texttt{SOURCE\_MANIFEST.sha256} is generated after the paper and
+documentation edits and verified entry by entry before packaging.  This
+integrity replay is independent of the logical kernel audit.
+
+\subsection{Exact remaining formal boundary}
+
+The mathematical content of Theorems A and B is closed in Lean.  The formal
+equalities concern underlying reduced sets, and the component invariant is the
+cardinality of mathlib's actual irreducible-component set.  The only stated
+boundary is scheme-theoretic: multiplicities, valuations, normalizations, and
+scheme structures on the nonproperness locus are not defined or claimed.
+
+\section{Dual closure audit}
+
+\subsection{Mathematical closure audit: passed at H1}
+
+The human argument closes every stated mathematical obligation:
+\begin{itemize}[leftmargin=2.1em,itemsep=0.25em]
+ \item The exact reduced-set equality, component formula, present-pair
+       polynomial inequivalence, and infinite degree-six theorem are proved.
+ \item The hypothesis $h\ne0$ is used exactly where needed to keep the generic
+       degree equal to six; distinct roots are counted without multiplicity.
+ \item Constant $h$, a root at $0$, repeated roots, the special component
+       $p=0$, and the empty product $m=0$ are covered.
+ \item Nonproperness is established independently of component counting, so
+       the decomposition and the invariant are not used circularly.
+ \item Both possible containments between the finite component and a vertical
+       hyperplane are excluded.
+ \item Equality always means equality of underlying reduced algebraic sets.
+       No scheme structure is tacitly imported.
+\end{itemize}
+
+The completed Lean artifact independently checks the entire universal spine:
+polynomial and point-map agreement, Jacobian and degree, nonautomorphism,
+inverse formulas, finite geometry, proper-covering fiber loss, the reduced-set
+equality, actual component formula, and both parameter-free main theorems.
+
+\subsection{Formal closure audit: Theorems A and B passed}
+
+The parameter-free \texttt{theoremA} and \texttt{theoremB}, together with all
+their public supporting endpoints, are accepted by the pinned kernel.  The
+3,507-job replay and 92-report enforced axiom audit supply the immutable
+formal-closure evidence.
+
+\section{Remaining frontier}
+
+There is no remaining theorem-level action item for the claims in this paper.
+An optional future project could define and study a scheme-theoretic or
+valuation-theoretic refinement of the nonproperness locus.  Such a refinement
+would be a new theorem with new invariance obligations; factors and
+multiplicities in a raw resultant are not promoted to invariants here.
+
+\begin{thebibliography}{1}
+
+\bibitem{source}
+\emph{A Counterexample to the Jacobian Conjecture}, working manuscript,
+20 July 2026, Theorem 5.2.
+
+\end{thebibliography}
+
+\end{document}
